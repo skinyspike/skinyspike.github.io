@@ -20,39 +20,8 @@
 <body>
 <a class="skip-link" href="#main">본문 바로가기</a>
 
-<header class="header">
-  <div class="container header__inner">
-    <a class="logo" href="index.html" aria-label="원더플랜트 홈">
-      <img class="logo__mark" src="assets/img/favicon.svg" alt="" width="32" height="32">
-      <span class="logo__text">원더플랜트<small>WONDERPLANT</small></span>
-    </a>
-    <nav class="nav" aria-label="주요 메뉴">
-      <a class="nav__link" data-nav="about.html" href="about.html">회사소개</a>
-      <a class="nav__link" data-nav="platform-nebalson.html" href="platform-nebalson.html">네발손님</a>
-      <a class="nav__link" data-nav="platform-familyquest.html" href="platform-familyquest.html">패밀리 퀘스트</a>
-      <a class="nav__link" data-nav="notice.html" href="notice.html">공지사항</a>
-    </nav>
-    <div class="header__actions">
-      <a class="btn btn--primary btn--sm" href="contact.html">문의하기</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="메뉴 열기">
-        <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<div class="drawer" id="drawer" aria-hidden="true">
-  <nav aria-label="모바일 메뉴">
-    <a class="drawer__link" data-nav="about.html" href="about.html">회사소개</a>
-    <a class="drawer__link" data-nav="platform-nebalson.html" href="platform-nebalson.html">네발손님</a>
-    <a class="drawer__link" data-nav="platform-familyquest.html" href="platform-familyquest.html">패밀리 퀘스트</a>
-    <a class="drawer__link" data-nav="notice.html" href="notice.html">공지사항</a>
-    <a class="drawer__link" data-nav="contact.html" href="contact.html">문의하기</a>
-  </nav>
-  <div class="drawer__cta">
-    <a class="btn btn--primary btn--block btn--lg" href="contact.html">제휴·도입 문의하기</a>
-  </div>
-</div>
+<!-- 헤더 · 모바일 드로어 — assets/js/layout.js 가 생성합니다 -->
+<div id="site-header"></div>
 
 <main id="main">
 
@@ -241,7 +210,7 @@
         <div><dt>사업 영역</dt><dd>모바일 애플리케이션 개발 및 플랫폼 서비스 운영</dd></div>
         <div><dt>주요 서비스</dt><dd>네발손님 (펫택시 플랫폼) · 패밀리 퀘스트 (동기부여 할일 앱)</dd></div>
         <div><dt>주소</dt><dd>경기도 김포시 돌문로 50-20 로얄프라자 502-C18호</dd></div>
-        <div><dt>이메일</dt><dd><a class="text-brand" href="mailto:contact@wonderplant.co.kr">admin@wonderplant.co.kr</a></dd></div>
+        <div><dt>이메일</dt><dd><a class="text-brand" href="mailto:admin@wonderplant.co.kr">admin@wonderplant.co.kr</a></dd></div>
       </dl>
     </div>
   </section>
@@ -261,55 +230,11 @@
 
 </main>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <a class="logo" href="index.html">
-          <img class="logo__mark" src="assets/img/favicon.svg" alt="" width="32" height="32">
-          <span class="logo__text">원더플랜트<small>WONDERPLANT</small></span>
-        </a>
-        <p class="footer__desc">
-          일상의 불편을 심어, 놀라운 경험으로 키웁니다.<br>
-          반려동물 이동 플랫폼 「네발손님」과 동기부여 할일 앱 「패밀리 퀘스트」를 만들고 있습니다.
-        </p>
-      </div>
-      <div>
-        <h4>회사</h4>
-        <ul class="footer__links">
-          <li><a href="about.html">회사소개</a></li>
-          <li><a href="about.html#values">일하는 방식</a></li>
-          <li><a href="notice.html?cat=%EC%B1%84%EC%9A%A9">채용</a></li>
-          <li><a href="notice.html">공지사항</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>플랫폼</h4>
-        <ul class="footer__links">
-          <li><a href="platform-nebalson.html">네발손님 (펫택시)</a></li>
-          <li><a href="platform-familyquest.html">패밀리 퀘스트</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>문의</h4>
-        <ul class="footer__links">
-          <li><a href="mailto:contact@wonderplant.co.kr">contact@wonderplant.co.kr</a></li>
-          <li><a href="contact.html">문의 폼 바로가기</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="footer__legal">
-        <span>주식회사 원더플랜트</span>
-        <span>대표이사 000</span>
-        <span>사업자등록번호 000-00-00000</span>
-        <span>주소 준비 중</span>
-      </div>
-      <div>© <span data-year>2026</span> WonderPlant Inc. All rights reserved.</div>
-    </div>
-  </div>
-</footer>
+<!-- 푸터 — assets/js/layout.js 가 생성합니다 -->
+<div id="site-footer"></div>
 
+<script src="assets/js/site-config.js" defer></script>
+<script src="assets/js/layout.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

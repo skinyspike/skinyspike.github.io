@@ -23,11 +23,63 @@ GitHub Pages에 그대로 올리면 바로 동작합니다. npm, 번들러, 프�
     ├── css/style.css             전체 스타일 (디자인 토큰 · 반응형 · 다크 미대응 단일 테마)
     ├── img/favicon.svg           로고 / 파비콘
     └── js/
-        ├── main.js               헤더 · 모바일 드로어 · 스크롤 리빌 · 카운트업 · 문의 폼
+        ├── site-config.js        ★ 회사 정보 · 메뉴 · 푸터 링크 (여기만 고치면 전 페이지 반영)
+        ├── layout.js             헤더 · 모바일 드로어 · 푸터 마크업 생성
+        ├── main.js               스크롤 동작 · 드로어 토글 · 리빌 · 카운트업 · 문의 폼
         ├── notices-data.js       ★ 공지사항 데이터 (여기만 고치면 됩니다)
         ├── notice-list.js        목록 렌더링 · 필터 · 검색 · 페이지네이션
         └── notice-detail.js      상세 렌더링 · 이전/다음 글
 ```
+
+---
+
+## 헤더 · 푸터는 한 곳에서 관리합니다
+
+정적 사이트는 보통 헤더/푸터를 페이지마다 복사해 두기 때문에, 회사 정보 하나를
+바꾸려면 모든 HTML 을 다 고쳐야 합니다. 이 사이트는 그러지 않습니다.
+
+각 페이지에는 **자리표시자만** 들어 있습니다.
+
+```html
+<div id="site-header"></div>
+...
+<div id="site-footer"></div>
+```
+
+`assets/js/layout.js` 가 `assets/js/site-config.js` 를 읽어 실제 마크업을 만들어 넣습니다.
+**대표자명·사업자등록번호·주소·이메일·메뉴·푸터 링크는 전부 `site-config.js` 한 파일**에 있고,
+거기만 고치면 7개 페이지에 동시에 반영됩니다.
+
+### 페이지별로 다르게 하고 싶을 때
+
+모바일 드로어 맨 아래 버튼만 페이지마다 다릅니다. 자리표시자에 속성을 붙이면 됩니다.
+
+```html
+<div id="site-header" data-cta="드라이버 베타 신청하기" data-cta-href="contact.html"></div>
+```
+
+속성이 없으면 `site-config.js` 의 `drawerCta` 기본값을 씁니다.
+
+### 스크립트 로드 순서 (중요)
+
+```html
+<script src="assets/js/site-config.js" defer></script>
+<script src="assets/js/layout.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+```
+
+`layout.js` 가 만든 DOM 에 `main.js` 가 이벤트를 붙이므로 **이 순서를 바꾸면 메뉴가 동작하지 않습니다.**
+`defer` 는 문서에 적힌 순서대로 실행되므로 셋 다 `defer` 를 유지하세요.
+
+### 페이지를 새로 추가할 때
+
+1. 기존 페이지 하나를 복사해 `<main>` 안쪽 내용만 바꿉니다.
+2. `site-config.js` 의 `nav` / `footerGroups` 에 링크를 추가합니다.
+
+> **참고 — 크롤링**: 헤더/푸터 링크는 HTML 소스에 남지 않고 JS 로 생성됩니다.
+> 다만 모든 하위 페이지가 `index.html` **본문**에서도 링크되어 있어(플랫폼 카드, CTA 버튼,
+> 공지 목록) 자바스크립트를 실행하지 않는 크롤러도 전체 페이지를 찾아갈 수 있습니다.
+> 새 페이지를 추가할 때도 본문 어딘가에서 한 번은 링크되도록 해주세요.
 
 ---
 
@@ -108,17 +160,20 @@ var WP_NOTICES = [
 
 ## 반드시 교체해야 할 항목
 
-전체 파일에서 `TODO:` 주석으로 표시해 두었습니다.
+| 항목 | 위치 | 상태 |
+|---|---|---|
+| 대표이사명 · 사업자등록번호 · 주소 · 이메일 | `assets/js/site-config.js` | ✅ 입력됨 |
+| 설립일 | `about.html` 회사 정보 · 연혁 | ⚠️ 2025년 11월로 가정 |
+| 연혁 내용 | `about.html` `.timeline` | ⚠️ 제품 개발 이력 기준 예시 |
+| 공지사항 샘플 11건 | `assets/js/notices-data.js` | ⚠️ 샘플 |
+| 운영 시간 | `contact.html` | ⚠️ 평일 10–19시로 가정 |
+| 사이트 도메인 | `robots.txt`, 각 페이지의 `<link rel="canonical">` | ⚠️ 미설정 |
 
-| 항목 | 위치 |
-|---|---|
-| 대표이사명 · 사업자등록번호 · 주소 | 모든 페이지 푸터, `about.html` 회사 정보 |
-| 설립일 | `about.html` 회사 정보 · 연혁 |
-| 대표 이메일 (`contact@wonderplant.co.kr`) | 모든 페이지 푸터, `contact.html`(`data-mailto` 속성 포함) |
-| 연혁 내용 | `about.html` `.timeline` |
-| 공지사항 샘플 11건 | `assets/js/notices-data.js` |
-| 운영 시간 | `contact.html` |
-| 사이트 도메인 | `robots.txt`, 각 페이지의 `<link rel="canonical">` |
+> ⚠️ **채용 카테고리**: 공지 목록의 `채용` 칩과 푸터 채용 링크는 현재 꺼져 있는데,
+> `notices-data.js` 에는 `category: '채용'` 인 샘플 글(`hiring-flutter`)이 남아 있습니다.
+> 그래서 `전체` 탭에서는 그 글이 채용 배지를 달고 보입니다.
+> 채용을 안 쓸 거라면 그 항목을 지우고, 나중에 다시 열려면
+> `notice.html` 의 주석 처리된 칩과 `site-config.js` 의 안내 주석을 되살리면 됩니다.
 
 ---
 
