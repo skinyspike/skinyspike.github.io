@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>패밀리 퀘스트 — 긍정 강화로 만드는 선순환 | 주식회사 원더플랜트</title>
+<meta name="description" content="할일을 퀘스트로, 성과를 보상으로. 레트로 아케이드 컨셉의 동기부여 할일 앱 「패밀리 퀘스트」.">
+<meta name="theme-color" content="#FFD93D">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="./platform-familyquest.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="주식회사 원더플랜트">
+<meta property="og:title" content="패밀리 퀘스트 — 긍정 강화로 만드는 선순환">
+<meta property="og:description" content="잔소리 대신 퀘스트. 해내면 확실히 돌아오는 반응이 습관을 만듭니다.">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  /* 이 페이지만 레트로 아케이드 톤 */
+  .page-hero--quest { background: linear-gradient(180deg, var(--quest-soft), #fff); }
+  .page-hero--quest .eyebrow { color: #7A5C00; background: #FFEDBC; }
+  .feature-row__label { color: #A87A00; }
+  .quest-accent { color: #C79300; }
+
+  /* 4단계 흐름 */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .step {
+    position: relative;
+    background: #fff;
+    border: 3px solid var(--quest-ink);
+    border-radius: 14px;
+    box-shadow: 5px 5px 0 var(--quest-ink);
+    padding: 26px 22px;
+  }
+  .step__no {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 34px; height: 34px; padding: 0 10px;
+    background: var(--quest); border: 2.5px solid var(--quest-ink);
+    border-radius: 8px; font-weight: 800; font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .step h3 { font-size: 18px; margin-bottom: 9px; }
+  .step p { font-size: 14.5px; color: var(--ink-2); }
+
+  @media (max-width: 1024px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } .step { box-shadow: 4px 4px 0 var(--quest-ink); } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="index.html" aria-label="원더플랜트 홈">
+      <img class="logo__mark" src="assets/img/favicon.svg" alt="" width="32" height="32">
+      <span class="logo__text">원더플랜트<small>WONDERPLANT</small></span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="nav__link" data-nav="about.html" href="about.html">회사소개</a>
+      <a class="nav__link" data-nav="platform-nebalson.html" href="platform-nebalson.html">네발손님</a>
+      <a class="nav__link" data-nav="platform-familyquest.html" href="platform-familyquest.html">패밀리 퀘스트</a>
+      <a class="nav__link" data-nav="notice.html" href="notice.html">공지사항</a>
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--primary btn--sm" href="contact.html">문의하기</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="메뉴 열기">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <nav aria-label="모바일 메뉴">
+    <a class="drawer__link" data-nav="about.html" href="about.html">회사소개</a>
+    <a class="drawer__link" data-nav="platform-nebalson.html" href="platform-nebalson.html">네발손님</a>
+    <a class="drawer__link" data-nav="platform-familyquest.html" href="platform-familyquest.html">패밀리 퀘스트</a>
+    <a class="drawer__link" data-nav="notice.html" href="notice.html">공지사항</a>
+    <a class="drawer__link" data-nav="contact.html" href="contact.html">문의하기</a>
+  </nav>
+  <div class="drawer__cta">
+    <a class="btn btn--primary btn--block btn--lg" href="contact.html">알파 테스트 신청하기</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- 히어로 -->
+  <section class="page-hero page-hero--quest">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="index.html">홈</a><span aria-hidden="true">›</span><span>패밀리 퀘스트</span>
+      </nav>
+      <span class="eyebrow" style="margin-top:16px">🎮 동기부여 할일 앱 · 개발 중</span>
+      <h1 class="h-1">잔소리 대신 <span class="quest-accent">퀘스트</span>.<br>해내면 확실히 돌아옵니다</h1>
+      <p class="lead">
+        「패밀리 퀘스트」는 할일을 <strong>퀘스트</strong>로 바꾸고, 해냈을 때 점수와 보상이 반드시 따라오게 만든
+        레트로 아케이드 컨셉의 앱입니다. 심리학에서 말하는 <strong>긍정 강화</strong>를 앱의 뼈대로 삼았습니다.
+      </p>
+      <div class="btn-group" style="margin-top:32px">
+        <a class="btn btn--primary btn--lg" href="contact.html">알파 테스트 신청</a>
+        <a class="btn btn--ghost btn--lg" href="#how">작동 방식 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 왜 -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2" style="gap:56px;align-items:start">
+        <div class="reveal">
+          <span class="eyebrow">WHY</span>
+          <h2 class="h-1" style="margin:16px 0 20px">체크리스트는<br>왜 사흘 만에 방치될까요</h2>
+        </div>
+        <div class="reveal" data-delay="100">
+          <p class="lead" style="margin-bottom:20px">
+            대부분의 할일 앱은 <strong>“해야 할 일 목록”</strong>입니다. 열 때마다 아직 못 한 일이 눈에 들어오니
+            여는 것 자체가 부담이 됩니다. 어른도 그런데, 아이는 더 빨리 지웁니다.
+          </p>
+          <p class="lead" style="margin-bottom:20px">
+            아이에게 필요한 것은 더 촘촘한 관리가 아니라 <strong>해냈을 때 확실히 돌아오는 반응</strong>입니다.
+            그래서 「패밀리 퀘스트」는 완료를 축하하는 데 훨씬 많은 공을 들였습니다.
+            승인·연속 달성·목표 근접은 크게 축하하고, <strong>감점은 조용히</strong> 처리합니다.
+          </p>
+          <p class="lead">
+            그리고 무엇보다, 점수만 통보하는 알림은 만들지 않았습니다.
+            발행·제출·승인·거절 <strong>모든 순간에 한마디 대화가 함께 실립니다</strong>.
+            이 앱이 남기고 싶은 것은 점수가 아니라 그 대화입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 작동 방식 -->
+  <section class="section section--soft" id="how">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">HOW IT WORKS</span>
+        <h2 class="h-1">한 바퀴가 이렇게 돕니다</h2>
+        <p class="lead">이 네 단계가 매일 반복되면서 습관이 만들어집니다.</p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step__no">01</span>
+          <h3>발행</h3>
+          <p>부모(또는 누구든)가 퀘스트를 만듭니다. 반복 주기, 배점, 마감, 사진 인증 여부를 정합니다.</p>
+        </div>
+        <div class="step">
+          <span class="step__no">02</span>
+          <h3>수행</h3>
+          <p>자녀가 퀘스트를 수행하고 완료를 제출합니다. 사진·영상으로 인증하고 한마디를 덧붙입니다.</p>
+        </div>
+        <div class="step">
+          <span class="step__no">03</span>
+          <h3>심사</h3>
+          <p>발행한 사람이 승인하거나 다시 요청합니다. 이때도 반드시 한마디가 함께 전달됩니다.</p>
+        </div>
+        <div class="step">
+          <span class="step__no">04</span>
+          <h3>보상</h3>
+          <p>점수가 적립되고 레벨이 오릅니다. 모인 점수는 포인트 샵에서 원하는 보상으로 바꿉니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 기능 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">FEATURES</span>
+        <h2 class="h-1">재미가 먼저입니다</h2>
+      </div>
+
+      <div class="reveal">
+        <div class="feature-row">
+          <div class="feature-row__label">01 · 게이미피케이션</div>
+          <div>
+            <h3>할일이 아니라 모험처럼 보이게</h3>
+            <p>할일은 <strong>퀘스트</strong>, 발행자는 <strong>NPC</strong>, 수행자는 <strong>플레이어</strong>,
+              목표는 <strong>보스 게이지</strong>, 점수 상점은 <strong>포인트 샵</strong>입니다.
+              픽셀 폰트와 하드 섀도로 만든 레트로 아케이드 화면 위에서 레벨과 연속 달성이 쌓입니다.
+              완료를 제출하면 카드가 튕기고, 승인을 받으면 점수가 카운트업되며 컨페티가 터집니다.</p>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-row__label">02 · 크루</div>
+          <div>
+            <h3>가족은 크루로 묶입니다</h3>
+            <p>가족 구성원이 하나의 <strong>크루</strong>가 되어 함께 목표를 정하고, 달성하고, 정산합니다.
+              크루 안에서는 서로의 진행 상황이 보이고, 이번 달 보스 게이지가 함께 차오릅니다.
+              가족뿐 아니라 <strong>친구·연인·동료</strong>도 크루를 만들어 쓸 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-row__label">03 · 양방향</div>
+          <div>
+            <h3>배역은 계정이 아니라 퀘스트에 붙습니다</h3>
+            <p>“이 사람은 심사자”라는 고정 역할이 없습니다. 같은 사람이 A 퀘스트에서는 발행자이고,
+              B 퀘스트에서는 수행자입니다. 그래서 <strong>아이가 부모에게 퀘스트를 줄 수도</strong> 있고,
+              친구끼리 퀘스트를 주고받으며 자율적으로 보상을 정할 수도 있습니다.
+              혼자서 자기 할일을 퀘스트로 만들어 쓰는 것도 물론 가능합니다.</p>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-row__label">04 · 대화</div>
+          <div>
+            <h3>답장할 수 없는 알림은 만들지 않습니다</h3>
+            <p>“+20점이 적립되었습니다” 로 끝나는 알림은 이 앱에 없습니다.
+              발행·제출·승인·거절 모든 상태 변화에 <strong>한마디 대화 필드가 강제로 붙어</strong>,
+              알림이 곧 대화의 시작점이 됩니다. 잘한 점을 짚어주는 한 줄이
+              점수보다 오래 남는다고 믿기 때문입니다.</p>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-row__label">05 · 퀘스트 구성</div>
+          <div>
+            <h3>매일 · 주간 · 서브퀘스트 · 히든퀘스트</h3>
+            <p>반복 주기(매일/요일별/기간)와 하루 반복 횟수를 정할 수 있고,
+              하나의 퀘스트를 여러 <strong>체크 항목(서브퀘스트)</strong>으로 나눌 수 있습니다.
+              여러 명이 역할을 나눠 함께 수행하는 <strong>합동 퀘스트</strong>,
+              조건을 만족하면 갑자기 열리는 <strong>히든 퀘스트</strong>도 있습니다.
+              사진·GIF·영상 첨부와 자동 심사도 지원합니다.</p>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-row__label">06 · 보호 장치</div>
+          <div>
+            <h3>아이의 자산은 보호자 승인 없이 움직이지 않습니다</h3>
+            <p>자녀 계정에는 <strong>실제 화폐가 표시되지 않습니다</strong> — 오직 포인트(P)만 보입니다.
+              결제 화면과 원 단위 표기는 보호자 화면에만 존재하고,
+              포인트 정산과 아이템 구매는 <strong>보호자 승인</strong>을 최종 관문으로 거칩니다.
+              자녀 계정은 실명·이메일·전화번호 없이 초대코드와 PIN 으로만 로그인합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 대상 -->
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">FOR WHOM</span>
+        <h2 class="h-1">이런 분들께 권합니다</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card card--hover reveal">
+          <h3>초·중·고 자녀를 둔 가정</h3>
+          <p>집안일과 공부 습관을 두고 매번 실랑이하고 계신다면. 용돈과 할일을 하나의 규칙으로 연결하고,
+            그 과정에서 오가는 대화를 되살립니다.</p>
+        </div>
+        <div class="card card--hover reveal" data-delay="90">
+          <h3>친구·연인 크루</h3>
+          <p>서로에게 퀘스트를 주고받으며 운동, 공부, 습관 만들기를 함께합니다. 보상은 두 사람이 자율적으로 정합니다.</p>
+        </div>
+        <div class="card card--hover reveal" data-delay="180">
+          <h3>혼자 쓰는 사용자</h3>
+          <p>자기 할일을 퀘스트로 만들어 스스로에게 점수를 매깁니다. 목록을 지우는 대신 레벨을 올리는 방식입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-band reveal">
+        <span class="eyebrow" style="background:rgba(255,255,255,.14);color:#FFD93D">ALPHA TEST</span>
+        <h2 class="h-1" style="margin-top:18px">먼저 써보실 가족을 찾습니다</h2>
+        <p class="lead">퀘스트 발행부터 정산까지 한 바퀴 전체를 경험하고, 의견을 남겨주세요.</p>
+        <div class="btn-group" style="justify-content:center">
+          <a class="btn btn--primary btn--lg" href="contact.html">알파 테스트 신청하기</a>
+          <a class="btn btn--light btn--lg" href="notice.html">공지사항 보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="index.html">
+          <img class="logo__mark" src="assets/img/favicon.svg" alt="" width="32" height="32">
+          <span class="logo__text">원더플랜트<small>WONDERPLANT</small></span>
+        </a>
+        <p class="footer__desc">
+          일상의 불편을 심어, 놀라운 경험으로 키웁니다.<br>
+          반려동물 이동 플랫폼 「네발손님」과 동기부여 할일 앱 「패밀리 퀘스트」를 만들고 있습니다.
+        </p>
+      </div>
+      <div>
+        <h4>회사</h4>
+        <ul class="footer__links">
+          <li><a href="about.html">회사소개</a></li>
+          <li><a href="about.html#values">일하는 방식</a></li>
+          <li><a href="notice.html?cat=%EC%B1%84%EC%9A%A9">채용</a></li>
+          <li><a href="notice.html">공지사항</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>플랫폼</h4>
+        <ul class="footer__links">
+          <li><a href="platform-nebalson.html">네발손님 (펫택시)</a></li>
+          <li><a href="platform-familyquest.html">패밀리 퀘스트</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>문의</h4>
+        <ul class="footer__links">
+          <li><a href="mailto:contact@wonderplant.co.kr">contact@wonderplant.co.kr</a></li>
+          <li><a href="contact.html">문의 폼 바로가기</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        <span>주식회사 원더플랜트</span>
+        <span>대표이사 000</span>
+        <span>사업자등록번호 000-00-00000</span>
+        <span>주소 준비 중</span>
+      </div>
+      <div>© <span data-year>2026</span> WonderPlant Inc. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

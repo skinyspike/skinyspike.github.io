@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: 도메인이 정해지면 아래 줄의 주석을 풀고 실제 주소로 교체하세요.
+# Sitemap: https://example.github.io/sitemap.xml

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="원더플랜트">
+  <defs>
+    <linearGradient id="wpGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12C79A"/>
+      <stop offset="1" stop-color="#007D5C"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="17" fill="url(#wpGrad)"/>
+  <path d="M32 50V27" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <path d="M32 31C32 22.7 26.3 16 18 15c-1 8.9 4.6 16 14 16z" fill="#fff" opacity=".92"/>
+  <path d="M32 36c0-7.2 5-13 12.3-13.9.9 7.7-4 13.9-12.3 13.9z" fill="#fff"/>
+</svg>
