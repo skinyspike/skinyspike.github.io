@@ -932,3 +932,14 @@ h1, h2, h3, h4 { line-height: 1.28; letter-spacing: -.03em; font-weight: 800; }
   body { color: #000; }
   .section { padding: 24px 0; }
 }
+
+/* ---------- 18. 약관 · 개인정보처리방침 ---------- */
+.policy__sec { padding: 26px 0; border-bottom: 1px solid var(--line); }
+.policy__sec:first-child { padding-top: 0; }
+.policy__sec:last-child { border-bottom: 0; }
+.policy__sec h2 { font-size: 19px; margin-bottom: 12px; }
+.policy__sec p { font-size: 15px; color: var(--ink-2); line-height: 1.8; }
+.policy__sec p + p { margin-top: 6px; }
+.footer__policy { display: flex; gap: 20px; font-size: 13px; }
+.footer__policy a { color: rgba(255, 255, 255, .8); }
+.footer__policy a:hover { color: #fff; }

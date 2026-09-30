@@ -86,6 +86,10 @@
       return '<div><h4>' + esc(g.title) + '</h4><ul class="footer__links">' + links + '</ul></div>';
     }).join('');
 
+    var policy = (S.footerPolicy || []).map(function (l) {
+      return '<a href="' + esc(l.href) + '">' + esc(l.label) + '</a>';
+    }).join('');
+
     mount.innerHTML =
       '<footer class="footer">' +
         '<div class="container">' +
@@ -103,6 +107,7 @@
               '<span>사업자등록번호 ' + esc(C.bizNo) + '</span>' +
               '<span>' + esc(C.address) + '</span>' +
             '</div>' +
+            '<div class="footer__policy">' + policy + '</div>' +
             '<div>© <span data-year>' + new Date().getFullYear() + '</span> ' + esc(C.nameEn) + ' All rights reserved.</div>' +
           '</div>' +
         '</div>' +

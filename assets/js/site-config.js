@@ -16,7 +16,7 @@ var WP_SITE = {
     ceo: '정수환',
     bizNo: '394-81-04083',
     address: '경기도 김포시 돌문로 50-20 로얄프라자 502-C18호',
-    email: 'admin@wonderplant.co.kr',
+    email: 'admin@wonderplant.xyz',
     // 푸터 소개 문구 (<br> 사용 가능)
     description:
       '일상의 불편을 딛고, 놀라운 경험을 키웁니다.<br>' +
@@ -38,6 +38,12 @@ var WP_SITE = {
      페이지별로 다르게 하려면 해당 페이지의 <div id="site-header"> 에
      data-cta="라벨" data-cta-href="주소" 를 붙이면 됩니다. */
   drawerCta: { label: '제휴·도입 문의하기', href: 'contact.html' },
+
+  /* 푸터 하단 약관 링크 */
+  footerPolicy: [
+    { label: '이용약관', href: 'terms.html' },
+    { label: '개인정보처리방침', href: 'privacy.html' }
+  ],
 
   /* ---------- 푸터 링크 ---------- */
   /* 채용 메뉴를 다시 열려면 '회사' 그룹에 아래 항목을 추가하세요.
