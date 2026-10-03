@@ -747,6 +747,32 @@ h1, h2, h3, h4 { line-height: 1.28; letter-spacing: -.03em; font-weight: 800; }
 .checkbox { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ink-2); }
 .checkbox input { width: 18px; height: 18px; margin-top: 3px; flex: none; accent-color: var(--brand); }
 
+/* 폼 내 필수 확인 안내 박스 (계정·데이터 삭제 등) */
+.form-notice {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border: 1.5px solid var(--line);
+  border-left: 4px solid var(--danger);
+  border-radius: var(--r-md);
+  background: var(--bg-soft);
+}
+.form-notice[hidden] { display: none; }
+.form-notice__title { font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
+.form-notice__lead { font-size: 13px; color: var(--ink-3); margin-top: 6px; line-height: 1.6; }
+.form-notice__group { display: grid; gap: 12px; }
+.form-notice__sub {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand-dark);
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.form-notice__list { display: grid; gap: 13px; }
+.form-notice .checkbox { font-size: 13px; line-height: 1.7; }
+.form-notice .checkbox strong { color: var(--ink); font-weight: 700; }
+.form-notice__foot { font-size: 12px; color: var(--ink-3); line-height: 1.6; }
+
 .info-list { display: grid; gap: 2px; }
 .info-list div {
   display: grid;

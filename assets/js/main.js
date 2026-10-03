@@ -155,11 +155,67 @@
   }
 
   /* ---------- 7. 문의 폼 (백엔드 없음 → 메일 클라이언트로 전달) ---------- */
+
+  // 계정·데이터 삭제 문의 유형 → 안내 박스에 표시할 서비스명
+  var DELETION_SUBJECTS = {
+    '네발손님 계정 및 데이터 삭제': '네발손님',
+    '패밀리 퀘스트 계정 및 데이터 삭제': '패밀리 퀘스트'
+  };
+
+  var DELETION_PLACEHOLDER =
+    '본인 확인을 위해 가입 시 사용한 이름, 이메일 또는 휴대전화번호, ' +
+    '로그인 수단(구글·네이버·카카오)을 적어주세요. 함께 전달할 내용이 있으면 이어서 작성해 주세요.';
+
+  /* 삭제 요청 안내 박스: 유형에 따라 표시/숨김 전환.
+     숨김 상태에서는 disabled 로 두어 유효성 검사 대상에서 제외한다.
+     반환값은 체크된 확인 항목 목록을 돌려주는 함수. */
+  function initDeletionNotice(form) {
+    var notice = document.getElementById('deletion-notice');
+    var subject = form.querySelector('[name="subject"]');
+    if (!notice || !subject) return function () { return []; };
+
+    var checks = notice.querySelectorAll('input[type="checkbox"]');
+    var labels = notice.querySelectorAll('[data-deletion-service]');
+    var message = form.querySelector('[name="message"]');
+    var basePlaceholder = message ? (message.getAttribute('placeholder') || '') : '';
+
+    function sync() {
+      var service = DELETION_SUBJECTS[subject.value] || '';
+      var on = !!service;
+
+      notice.hidden = !on;
+      for (var i = 0; i < checks.length; i++) {
+        checks[i].required = on;
+        checks[i].disabled = !on;
+        if (!on) checks[i].checked = false;
+      }
+      for (var j = 0; j < labels.length; j++) {
+        labels[j].textContent = service || '서비스';
+      }
+      if (message) {
+        message.setAttribute('placeholder', on ? DELETION_PLACEHOLDER : basePlaceholder);
+      }
+    }
+
+    subject.addEventListener('change', sync);
+    sync();
+
+    return function collect() {
+      if (notice.hidden) return [];
+      var acks = [];
+      for (var i = 0; i < checks.length; i++) {
+        if (checks[i].checked) acks.push(checks[i].getAttribute('data-ack') || '확인');
+      }
+      return acks;
+    };
+  }
+
   function initContactForm() {
     var form = document.getElementById('contact-form');
     if (!form) return;
 
     var status = document.getElementById('form-status');
+    var collectDeletionAcks = initDeletionNotice(form);
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -179,7 +235,14 @@
         '',
         '■ 문의 내용',
         String(data.get('message') || '')
-      ].join('\n');
+      ];
+
+      var acks = collectDeletionAcks();
+      if (acks.length) {
+        body.push('', '■ 삭제 요청 확인 사항 (모두 동의)');
+        for (var i = 0; i < acks.length; i++) body.push('- ' + acks[i]);
+      }
+      body = body.join('\n');
 
       window.location.href = 'mailto:' + to +
         '?subject=' + encodeURIComponent(subject) +
