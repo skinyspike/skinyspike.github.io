@@ -42,6 +42,7 @@ var WP_SITE = {
   /* 푸터 하단 약관 링크 */
   footerPolicy: [
     { label: '이용약관', href: 'terms.html' },
+    { label: '운영정책', href: 'operation.html' },
     { label: '개인정보처리방침', href: 'privacy.html' }
   ],
 
