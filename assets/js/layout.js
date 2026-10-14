@@ -38,7 +38,7 @@
 
   function logo(extraClass) {
     return '<a class="logo' + (extraClass ? ' ' + extraClass : '') + '" href="index.html" aria-label="' + esc(C.logoKo) + ' 홈">' +
-      '<img class="logo__mark" src="assets/img/favicon.svg" alt="" width="32" height="32">' +
+      '<img class="logo__mark" src="assets/img/logo-mark.png" alt="" width="32" height="32">' +
       '<span class="logo__text">' + esc(C.logoKo) + '<small>' + esc(C.logoEn) + '</small></span>' +
       '</a>';
   }
