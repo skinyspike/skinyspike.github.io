@@ -38,7 +38,97 @@
     <div class="container container--narrow policy">
       <section class="policy__sec"><h2>1. 목적</h2><p>이 운영정책은 서비스 <a href="terms.html">이용약관</a>에서 위임한 사항을 구체적으로 정하여, 집사와 기사가 안전하고 예측 가능하게 서비스를 이용하도록 하는 것을 목적으로 합니다.</p></section>
       <section class="policy__sec"><h2>2. 예약과 배차</h2><p>1. 예약은 출발지·도착지·희망 시간·반려동물 정보를 정확히 입력해 신청합니다.</p><p>2. 기사가 배차를 수락하면 예약이 확정되고, 확정 사실은 알림으로 안내합니다.</p><p>3. 확정 후 예약 내용을 수정하면 배정된 기사에게 다시 확인 절차가 진행되며, 기사가 거절하면 재배차 또는 취소로 이어질 수 있습니다.</p></section>
-      <section class="policy__sec"><h2>3. 취소와 수수료</h2><p>1. 예약을 요청한 뒤 10분 이내에 취소하면 수수료가 발생하지 않습니다.</p><p>2. 예약 요청 후 10분이 지난 뒤의 취소에는 취소 수수료가 부과될 수 있으며, 부과되는 금액은 취소 시 서비스 화면에서 안내합니다.</p><p>3. 기사 사정으로 취소된 경우 집사에게 수수료를 부과하지 않으며, 재배차를 지원합니다.</p></section>
+      <!-- cancel-fee:start — 관리자 콘솔 '요금 정책 › 취소 수수료'에서 정책을 저장하면 이 블록을 자동으로 덮어씁니다. 직접 수정하지 마세요. -->
+      <style>
+        .policy__rate { margin: 12px 0 0; }
+        .policy__rate figcaption { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+        .policy__rate table { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .policy__rate th, .policy__rate td { padding: 10px 14px; font-size: 14px; line-height: 1.6; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+        .policy__rate th { text-align: left; font-weight: 600; color: var(--ink-2); }
+        .policy__rate td { text-align: right; font-weight: 700; white-space: nowrap; }
+        .policy__rate tr:last-child th, .policy__rate tr:last-child td { border-bottom: 0; }
+        .policy__sec ul { margin: 6px 0 0; padding-left: 18px; }
+        .policy__sec li { font-size: 15px; color: var(--ink-2); line-height: 1.8; }
+        .policy__stamp { margin-top: 14px; font-size: 13px; color: var(--ink-3); }
+      </style>
+      <section class="policy__sec" id="cancel-fee">
+        <h2>3. 취소와 수수료</h2>
+        <p>1. 취소 수수료는 플랫폼에서 선결제한 예약에만 적용됩니다. 요금을 기사님께 직접 결제하는 후불 결제 예약(사업자 기사의 현장 결제 건 등)에는 취소 수수료가 부과되지 않으며, 기사 귀책 취소의 보상 크레딧도 지급되지 않습니다 — 주고받은 돈이 없어 보전할 실손이 없기 때문입니다. 후불 결제 예약에서 기사 사정으로 취소된 경우에는 수수료 없이 재배차를 지원합니다.</p>
+        <p>2. 취소 수수료는 고객 제재가 아니라 기사님의 실손 보전이며, 두 항목의 합으로 산정됩니다.</p>
+        <ul>
+          <li>슬롯 보상 — 기사님이 비워 둔 시간에 대한 보상</li>
+          <li>공차 실비 — 기사님이 픽업지로 이동하며 실제 소모한 연료와 시간. 기사님이 픽업 이동을 시작한 이후에만 가산됩니다.</li>
+        </ul>
+        <p>3. 산정 기준이 되는 운임은 예약 확정 시점의 확정 견적입니다.</p>
+        <p>4. 배차 확정 전 취소는 수수료가 발생하지 않습니다.</p>
+        <p>5. 예약 호출의 슬롯 보상은 취소 시점에 따라 다음과 같습니다.</p>
+        <figure class="policy__rate">
+          <figcaption>예약 호출 — 슬롯 보상</figcaption>
+          <table><tbody>
+            <tr><th scope="row">출발 24시간 전까지</th><td>무료</td></tr>
+            <tr><th scope="row">출발 24~6시간 전</th><td>운임의 10%</td></tr>
+            <tr><th scope="row">출발 6~2시간 전</th><td>운임의 20%</td></tr>
+            <tr><th scope="row">출발 2시간 전 ~ 출발</th><td>운임의 30%</td></tr>
+            <tr><th scope="row">노쇼(기사 도착 후 10분 연락두절)</th><td>운임의 50%</td></tr>
+          </tbody></table>
+        </figure>
+        <p>6. 슬롯 보상에는 운임 구간별 상한이 있습니다. 어느 구간에서도 운임의 100%를 부과하지 않습니다.</p>
+        <figure class="policy__rate">
+          <figcaption>슬롯 보상 상한 — 운임 구간별</figcaption>
+          <table><tbody>
+            <tr><th scope="row">50,000원 미만</th><td>20,000원</td></tr>
+            <tr><th scope="row">50,000원 ~ 100,000원</th><td>40,000원</td></tr>
+            <tr><th scope="row">100,000원 이상</th><td>70,000원</td></tr>
+          </tbody></table>
+        </figure>
+        <p>7. 즉시 호출(출발까지 60분 이내로 신청한 예약)은 정액으로 부과됩니다.</p>
+        <figure class="policy__rate">
+          <figcaption>즉시 호출 — 정액</figcaption>
+          <table><tbody>
+            <tr><th scope="row">배차 후 10분 이내</th><td>무료</td></tr>
+            <tr><th scope="row">10분 경과 ~ 기사 도착 전</th><td>5,000원</td></tr>
+            <tr><th scope="row">기사 도착 후 취소 또는 10분 노쇼</th><td>10,000원</td></tr>
+          </tbody></table>
+        </figure>
+        <p>※ 공차 5km 초과분은 km당 1,000원을 가산하며 최대 10,000원입니다.</p>
+        <p>8. 공차 실비 단가에는 기사님의 왕복 복귀분이 반영돼 있어, 실제 이동한 거리에 비례해 부과됩니다.</p>
+        <figure class="policy__rate">
+          <figcaption>공차 실비 — 거리 단가</figcaption>
+          <table><tbody>
+            <tr><th scope="row">0 ~ 10km</th><td>km당 1,500원</td></tr>
+            <tr><th scope="row">10 ~ 50km 구간</th><td>km당 1,100원</td></tr>
+            <tr><th scope="row">50km 초과 구간</th><td>km당 800원</td></tr>
+          </tbody></table>
+        </figure>
+        <p>9. 공차 실비는 배차가 확정될 때 안내한 금액이 상한입니다. 배차 확정 시 예약 상세와 알림으로 &quot;지금 취소하면 최대 ○○원&quot;을 안내하며, 그 금액을 넘겨 청구하지 않습니다. 안내가 이루어지지 않은 건에는 공차 실비를 부과하지 않습니다.</p>
+        <p>10. 운임 100,000원 이상인 장거리 예약은 출발 2시간 전에 확인 알림을 보냅니다. 확인 전에 취소하면 슬롯 보상만 부과되고, 확인 후 취소하면 슬롯 보상과 공차 실비가 함께 부과됩니다.</p>
+        <p>11. 다음 사유에는 수수료를 면제합니다. 증빙이 필요한 사유는 취소 시 신청하시면 확인 후 환불해 드립니다.</p>
+        <figure class="policy__rate">
+          <figcaption>면제와 유예</figcaption>
+          <table><tbody>
+            <tr><th scope="row">반려동물 응급&#183;사망(병원 서류 또는 사진)</th><td>전액 면제</td></tr>
+            <tr><th scope="row">병원 측 사유의 일정 변경(병원 발급 확인)</th><td>전액 면제</td></tr>
+            <tr><th scope="row">기사 10분 초과 지연(앱 로그 자동 판정)</th><td>전액 면제</td></tr>
+            <tr><th scope="row">기상특보&#183;재난</th><td>전액 면제</td></tr>
+            <tr><th scope="row">분기당 1회 무료 취소 크레딧(증빙 불필요)</th><td>슬롯 보상만 면제</td></tr>
+          </tbody></table>
+        </figure>
+        <p>12. 기사 귀책 취소에도 같은 기준의 제재가 적용되며, 선결제 건의 집사에게는 보상 크레딧(1P = 1원, 다음 예약 결제에 사용)을 지급합니다. 배차 점수 감점과 재배차 제외는 결제 방식과 무관하게 적용됩니다.</p>
+        <figure class="policy__rate">
+          <figcaption>기사 귀책 취소 — 보상과 제재</figcaption>
+          <table><tbody>
+            <tr><th scope="row">출발 24시간 전까지</th><td>보상 없음 &#183; 배차 점수 감점</td></tr>
+            <tr><th scope="row">출발 24~2시간 전</th><td>10,000원 크레딧 &#183; 기사 정산 10,000원 차감</td></tr>
+            <tr><th scope="row">출발 2시간 이내</th><td>집사가 냈을 슬롯 보상과 같은 금액 크레딧 &#183; 동일 금액 정산 차감</td></tr>
+            <tr><th scope="row">픽업 노쇼</th><td>동일 &#183; 배차 우선순위 강등</td></tr>
+            <tr><th scope="row">후불 결제 예약(현장 결제)</th><td>보상 크레딧 없음 &#183; 배차 점수 감점만</td></tr>
+          </tbody></table>
+        </figure>
+        <p>13. 취소 수수료는 결제수수료만 공제하고 전액 기사님께 지급됩니다. 회사는 취소로 수익을 내지 않습니다.</p>
+        <p>14. 부과된 취소 수수료는 산정 내역(슬롯 보상 &#183; 공차 실비)으로 분해해 취소 결과와 예약 상세에서 확인할 수 있습니다.</p>
+        <p class="policy__stamp">이 조항의 요율은 2026년 10월 16일 기준이며, 앱 운영정책 화면과 같은 값입니다.</p>
+      </section>
+      <!-- cancel-fee:end -->
       <section class="policy__sec"><h2>4. 노쇼(승차 불이행)와 대기 요금</h2><p>1. 기사가 약속 장소에 도착해 10분 이상 대기했으나 연락이 되지 않으면 노쇼로 처리됩니다.</p><p>2. 노쇼로 처리된 예약에는 취소 수수료 기준이 적용되며, 반복되는 경우 이용이 제한될 수 있습니다.</p><p>3. 무료 대기 시간은 출발지 픽업 10분, 도착지 인계 15분입니다. 무료 대기를 넘긴 대기에는 10분당 3,000원의 초과 대기 요금이 부과되며, 발생한 금액은 영수증에 별도 항목으로 표기됩니다.</p><p>4. 반려동물 단독 운송에서 도착지 인계가 이루어지지 않는 경우, 기사는 도착 즉시 1회, 이후 5분 간격으로 2회(총 3회) 보호자에게 연락을 시도합니다. 무료 대기 15분 안에 3회 모두 연락이 닿지 않으면 노쇼로 처리합니다.</p><p>5. 노쇼로 출발지에 반송하는 경우 귀로 운임 전액과 그동안 발생한 대기 요금이 청구됩니다.</p><p>6. 반송도 어려운 경우에는 보호자의 동의를 받아 가까운 동물병원 또는 펫호텔에 위탁하고, 위탁에 든 실비를 청구합니다.</p></section>
       <section class="policy__sec"><h2>5. 반려동물 탑승 기준</h2><p>1. 이동장(케이지) 또는 안전한 이동 보조기구 사용을 원칙으로 합니다.</p><p>2. 예약 시 반려동물의 크기·건강 상태·공격성 등 운송에 영향을 주는 정보를 사실대로 알려야 합니다.</p><p>3. 전염성 질환이 의심되거나 안전한 운송이 어려운 상태로 확인되면 운송이 거절될 수 있습니다.</p><p>4. 차량 오염이 발생한 경우 실비 범위에서 청소 비용이 청구될 수 있습니다.</p><p>5. 보호자가 동승하지 않는 단독 운송은 예약 시 도착지에서 반려동물을 인계받을 사람의 이름·연락처·추가 정보를 모두 입력해야 신청할 수 있습니다. 대기·연락·반송 기준은 제4조를 따릅니다.</p></section>
       <section class="policy__sec"><h2>6. 기사 운행 기준</h2><p>1. 기사는 동물운송업 관련 법령과 등록 기준을 준수하고, 유효한 차량·보험 정보를 유지해야 합니다.</p><p>2. 기사는 운행 건마다 운송일지를 작성해야 합니다.</p><p>3. 배차 수락 후 정당한 사유 없는 취소가 반복되면 배차 제한 등 조치가 이루어질 수 있습니다.</p></section>
