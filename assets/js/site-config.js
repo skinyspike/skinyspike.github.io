@@ -15,6 +15,7 @@ var WP_SITE = {
     logoEn: 'WONDERPLANT',
     ceo: '정수환',
     bizNo: '394-81-04083',
+    retailNo: '2026-경기김포-6414',
     address: '경기도 김포시 돌문로 50-20 로얄프라자 502-C18호',
     email: 'admin@wonderplant.xyz',
     // 푸터 소개 문구 (<br> 사용 가능)

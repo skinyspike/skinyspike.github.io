@@ -105,6 +105,7 @@
               '<span>' + esc(C.nameKo) + '</span>' +
               '<span>대표이사 ' + esc(C.ceo) + '</span>' +
               '<span>사업자등록번호 ' + esc(C.bizNo) + '</span>' +
+              '<span>통신판매업 신고번호 ' + esc(C.retailNo) + '</span>' +
               '<span>' + esc(C.address) + '</span>' +
             '</div>' +
             '<div class="footer__policy">' + policy + '</div>' +
