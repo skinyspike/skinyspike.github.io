@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>요금 안내 | 네발손님 | 주식회사 원더플랜트</title>
+<meta name="description" content="네발손님 반려동물 이동 서비스의 요금표와 요금 계산 공식입니다. 기본 요금·거리 요금·시간 요금과 심야·주말 할증, 반려동물 추가요금, 대기 요금 기준을 안내합니다.">
+<meta name="theme-color" content="#00A97F">
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/img/favicon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="canonical" href="https://www.wonderplant.xyz/pricing.html">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4027922554785589"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<!-- 헤더 · 모바일 드로어 — assets/js/layout.js 가 생성합니다 -->
+<div id="site-header" data-cta="네발손님 문의하기" data-cta-href="contact.html"></div>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="index.html">홈</a><span aria-hidden="true">›</span>
+        <a href="platform-nebalson.html">네발손님</a><span aria-hidden="true">›</span><span>요금 안내</span>
+      </nav>
+      <h1 class="h-1">요금표와 요금 계산 방식</h1>
+      <p class="lead">
+        네발손님의 요금은 <strong>① 기본 요금 + ② 이동 거리 요금 + ③ 시간 요금</strong> 세 가지로 이루어집니다.
+        여기에 해당하는 경우에만 할증(심야·주말공휴일·대형차·반려동물 추가요금)과 통행료·대기 요금이 더해지고,
+        쿠폰·마일리지 할인이 빠집니다. 아래 표와 공식만 보면 누구나 같은 금액을 직접 계산할 수 있습니다.
+      </p>
+      <p class="tiny" style="margin-top:14px">이 문서의 금액은 모두 원(KRW)이며, 표시 금액이 실제 청구 금액입니다.</p>
+    </div>
+  </section>
+
+  <!-- ===== 1. 요금표 ===== -->
+  <section class="section section--tight" id="fare-table">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:32px">
+        <span class="eyebrow">01</span>
+        <h2 class="h-2">요금표</h2>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="table">
+          <caption class="sr-only">네발손님 요금표</caption>
+          <thead>
+            <tr>
+              <th scope="col">항목</th>
+              <th scope="col">금액</th>
+              <th scope="col">적용 방식</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">기본 요금</th>
+              <td><strong>8,000원</strong></td>
+              <td>운행 1건당 1회</td>
+            </tr>
+            <tr>
+              <th scope="row">이동 거리 요금</th>
+              <td><strong>1,000원 / km</strong></td>
+              <td>실제 주행 경로 거리에 비례</td>
+            </tr>
+            <tr>
+              <th scope="row">시간 요금</th>
+              <td><strong>140 ~ 800원 / 분</strong></td>
+              <td>소요 시간에 비례. 분당 단가는 거리가 멀수록 낮아집니다 (<a href="#time-fare">자세히</a>)</td>
+            </tr>
+            <tr>
+              <th scope="row">심야 할증</th>
+              <td><strong>기본 요금 + 거리 요금의 20%</strong></td>
+              <td>00:00 ~ 04:00 에 걸친 시간만큼 비례 적용 (<a href="#surcharge">자세히</a>)</td>
+            </tr>
+            <tr>
+              <th scope="row">주말·공휴일 할증</th>
+              <td><strong>운행 요금의 20%</strong></td>
+              <td>출발일이 토·일요일 또는 법정 공휴일일 때 (<a href="#surcharge">자세히</a>)</td>
+            </tr>
+            <tr>
+              <th scope="row">대형차(밴) 할증</th>
+              <td><strong>이동 거리(km) × 분당 시간 요금</strong></td>
+              <td>대형 차량을 선택한 운행에만</td>
+            </tr>
+            <tr>
+              <th scope="row">반려동물 추가요금</th>
+              <td><strong>3점 초과분 1점당 2,000원</strong></td>
+              <td>크기 점수의 합이 3점을 넘을 때만 (<a href="#extra">자세히</a>)</td>
+            </tr>
+            <tr>
+              <th scope="row">통행료</th>
+              <td><strong>실비</strong></td>
+              <td>경로상 유료도로 통행료가 있을 때만</td>
+            </tr>
+            <tr>
+              <th scope="row">대기 요금 · 초과 대기 요금</th>
+              <td><strong>10분당 3,000원</strong></td>
+              <td>무료 대기 또는 예약 시 지정한 대기시간을 넘긴 시간에 (<a href="#extra">자세히</a>)</td>
+            </tr>
+            <tr>
+              <th scope="row">호출료 · 예약 수수료</th>
+              <td><strong>없음</strong></td>
+              <td>별도로 받지 않습니다</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tiny reveal" style="margin-top:16px">모든 항목은 100원 단위로 올림해 계산합니다.</p>
+    </div>
+  </section>
+
+  <!-- ===== 2. 요금 계산 공식 ===== -->
+  <section class="section section--soft section--tight" id="formula">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:32px">
+        <span class="eyebrow">02</span>
+        <h2 class="h-2">요금 계산 공식</h2>
+        <p class="lead">총 요금은 다음 한 줄로 결정됩니다.</p>
+      </div>
+
+      <p class="fare-formula reveal">
+        총 요금 = 기본 요금 + 거리 요금 + 시간 요금 + 추가·할증 + 주말·공휴일 할증 + 통행료 + 대기 요금 − 할인
+      </p>
+
+      <div class="table-wrap reveal" style="margin-top:28px">
+        <table class="table">
+          <caption class="sr-only">요금 항목별 계산식</caption>
+          <thead>
+            <tr>
+              <th scope="col">항목</th>
+              <th scope="col">계산식</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">① 기본 요금</th><td>8,000원 (고정)</td></tr>
+            <tr><th scope="row">② 거리 요금</th><td>이동 거리(km) × 1,000원</td></tr>
+            <tr><th scope="row">③ 시간 요금</th><td>소요 시간(분) × 분당 시간 요금 <span class="muted">— 분당 단가는 <a href="#time-fare">3장</a></span></td></tr>
+            <tr><th scope="row">④ 추가·할증</th><td>대형차 할증 + 심야 할증 + 반려동물 추가요금 의 합계</td></tr>
+            <tr><th scope="row">⑤ 주말·공휴일 할증</th><td>(① + ② + ③ + ④) × 20%</td></tr>
+            <tr><th scope="row">⑥ 통행료</th><td>경로상 유료도로 실비</td></tr>
+            <tr><th scope="row">⑦ 대기 요금</th><td>무료 대기 또는 지정 대기시간을 넘긴 시간 × 10분당 3,000원</td></tr>
+            <tr><th scope="row">⑧ 할인</th><td>보유한 쿠폰·마일리지를 사용한 금액</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="fare-subhead reveal">계산 순서와 올림 규칙</h3>
+      <ul class="fare-list reveal">
+        <li>① ~ ④ 를 각각 100원 단위로 올림한 뒤 더합니다.</li>
+        <li>⑤ 주말·공휴일 할증은 올림을 마친 ①+②+③+④ 합계에 20%를 적용하고, 그 결과도 100원 단위로 올립니다. 통행료와 대기 요금은 할증 대상에 들어가지 않습니다.</li>
+        <li>⑥ 통행료와 ⑦ 대기 요금을 더한 다음 ⑧ 할인을 뺍니다. 할인은 통행료·대기 요금까지 포함한 금액에서 차감됩니다.</li>
+        <li>이 순서로 계산하기 때문에 영수증의 항목을 모두 더하면 청구 금액과 정확히 일치합니다.</li>
+      </ul>
+
+      <p class="fare-callout reveal">
+        이동 거리와 소요 시간은 <strong>T맵 실시간 경로 안내</strong>에서 받아온 값을 사용합니다.
+        출발 시각이 미래인 예약은 그 시각의 예상 소요 시간으로 계산합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 3. 시간 요금 ===== -->
+  <section class="section section--tight" id="time-fare">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:32px">
+        <span class="eyebrow">03</span>
+        <h2 class="h-2">시간 요금 — 분당 단가가 거리에 따라 달라집니다</h2>
+        <p class="lead">
+          가까운 거리일수록 승·하차와 준비에 드는 품이 상대적으로 크기 때문에 분당 단가를 높게 두고,
+          거리가 멀어질수록 단가를 낮춰 장거리 요금이 과도하게 커지지 않도록 설계했습니다.
+        </p>
+      </div>
+
+      <p class="fare-formula reveal">
+        분당 시간 요금 = (800 − 140) × e<sup>(−0.16 × 거리)</sup> + 140
+        <span class="fare-formula__note">거리 = 이동 거리(km) · e = 자연상수(약 2.718) · 원 단위 미만 절사</span>
+      </p>
+
+      <p class="fare-note reveal">거리가 0에 가까우면 800원/분에서 출발해, 거리가 멀어질수록 140원/분으로 수렴합니다.</p>
+
+      <figure class="fare-chart reveal">
+        <img src="assets/img/pricing/fare-time-rate.png" width="1400" height="700" loading="lazy" decoding="async"
+             alt="이동 거리에 따른 분당 시간 요금 곡선. 3km 548원, 10km 273원, 20km 166원, 30km 145원, 50km 140원으로 낮아집니다.">
+        <figcaption>[그림 1] 이동 거리에 따른 분당 시간 요금</figcaption>
+      </figure>
+
+      <div class="table-wrap reveal" style="margin-top:28px">
+        <table class="table table--compact">
+          <caption class="sr-only">거리별 분당 시간 요금</caption>
+          <tbody>
+            <tr>
+              <th scope="row">이동 거리</th>
+              <td>3km</td><td>5km</td><td>10km</td><td>20km</td><td>30km</td><td>50km</td>
+            </tr>
+            <tr>
+              <th scope="row">분당 시간 요금</th>
+              <td>548원</td><td>436원</td><td>273원</td><td>166원</td><td>145원</td><td>140원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. 할증 ===== -->
+  <section class="section section--soft section--tight" id="surcharge">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:32px">
+        <span class="eyebrow">04</span>
+        <h2 class="h-2">할증</h2>
+      </div>
+
+      <h3 class="fare-subhead reveal" style="margin-top:0">4-1. 심야 할증 — 00:00 ~ 04:00</h3>
+      <p class="fare-note reveal">
+        운행 시간 중 심야 시간대(00:00 ~ 04:00)에 걸친 만큼만 비례해서 붙습니다.
+        심야에 10분만 걸쳤다면 10분치만 할증됩니다.
+      </p>
+      <p class="fare-formula reveal">
+        심야 할증 = (기본 요금 + 거리 요금) × 20% × 심야 구간 비율
+        <span class="fare-formula__note">심야 구간 비율 = 00:00~04:00 에 걸친 시간 ÷ 전체 소요 시간 (0 ~ 1)</span>
+      </p>
+      <ul class="fare-list reveal">
+        <li>예) 01:00 출발, 10km · 30분 운행 → 전 구간이 심야 → 비율 1.0 → (8,000 + 10,000) × 20% = <strong>3,600원</strong></li>
+        <li>예) 03:50 출발, 10km · 30분 운행 → 심야 10분 / 전체 30분 → 비율 0.33 → <strong>1,200원</strong></li>
+      </ul>
+
+      <h3 class="fare-subhead reveal">4-2. 주말·공휴일 할증 — 20%</h3>
+      <p class="fare-note reveal">
+        출발일이 토요일·일요일이거나 관공서 공휴일에 관한 규정에 따른 법정 공휴일(대체공휴일 포함)이면
+        운행 요금의 20%가 더해집니다.
+      </p>
+      <p class="fare-formula reveal">
+        주말·공휴일 할증 = (기본 + 거리 + 시간 + 추가·할증) × 20%
+      </p>
+      <ul class="fare-list reveal">
+        <li>판정은 출발일 하루만 봅니다. 운행이 자정을 넘겨 다음 날 끝나더라도 출발일 기준으로 한 번만 판정합니다.</li>
+        <li>통행료와 대기 요금은 할증 대상이 아닙니다.</li>
+        <li>심야 할증과 주말·공휴일 할증은 함께 적용될 수 있습니다. 이때 주말 할증은 심야 할증까지 더해진 금액을 기준으로 계산됩니다.</li>
+        <li>영수증에는 &ldquo;주말 할증 (20% · 토요일)&rdquo; 처럼 할증율과 사유가 그대로 표시됩니다.</li>
+      </ul>
+
+      <figure class="fare-chart reveal">
+        <img src="assets/img/pricing/fare-surcharge.png" width="1400" height="660" loading="lazy" decoding="async"
+             alt="같은 10km 30분 운행의 출발 시각별 요금 비교. 평일 주간 26,200원, 주말·공휴일 31,500원, 평일 심야 29,800원, 심야와 주말이 겹치면 35,800원입니다.">
+        <figcaption>[그림 2] 같은 10km · 30분 운행의 출발 시각별 요금 (예시)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== 5. 그 밖에 붙을 수 있는 요금 ===== -->
+  <section class="section section--tight" id="extra">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:32px">
+        <span class="eyebrow">05</span>
+        <h2 class="h-2">그 밖에 붙을 수 있는 요금</h2>
+      </div>
+
+      <h3 class="fare-subhead reveal" style="margin-top:0">5-1. 대형차(밴) 할증</h3>
+      <p class="fare-note reveal">대형 차량이 필요한 운행에만 붙습니다.</p>
+      <p class="fare-formula reveal">
+        대형차 할증 = 이동 거리(km) × 그 운행의 분당 시간 요금
+        <span class="fare-formula__note">예) 10km · 분당 273원 → 10 × 273 = 2,730원 → 2,800원(100원 올림)</span>
+      </p>
+
+      <h3 class="fare-subhead reveal">5-2. 반려동물 추가요금</h3>
+      <p class="fare-note reveal">
+        함께 타는 반려동물의 크기를 점수로 환산해 합산합니다. 합산 점수 3점까지는 추가요금이 없고,
+        3점을 넘는 점수에만 1점당 2,000원이 붙습니다. 크기는 몸무게로 구분합니다.
+      </p>
+
+      <div class="table-wrap reveal">
+        <table class="table table--compact">
+          <caption class="sr-only">반려동물 크기 구분과 점수</caption>
+          <thead>
+            <tr>
+              <th scope="col">크기</th>
+              <th scope="col">몸무게</th>
+              <th scope="col">점수</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">소형</th><td>7kg 미만</td><td><strong>1점</strong></td></tr>
+            <tr><th scope="row">중형</th><td>7kg 이상 15kg 미만</td><td><strong>2점</strong></td></tr>
+            <tr><th scope="row">대형</th><td>15kg 이상</td><td><strong>3점</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="fare-formula reveal" style="margin-top:24px">
+        반려동물 추가요금 = (크기 점수 합계 − 3) × 2,000원
+        <span class="fare-formula__note">점수 합계가 3점 이하면 0원</span>
+      </p>
+
+      <div class="table-wrap reveal">
+        <table class="table table--compact">
+          <caption class="sr-only">반려동물 추가요금 계산 예시</caption>
+          <thead>
+            <tr>
+              <th scope="col">탑승 반려동물</th>
+              <th scope="col">점수 합계</th>
+              <th scope="col">초과 점수</th>
+              <th scope="col">추가요금</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>소형 1마리</td><td>1점</td><td>-</td><td>0원</td></tr>
+            <tr><td>소형 3마리</td><td>3점</td><td>-</td><td>0원</td></tr>
+            <tr><td>소형 4마리</td><td>4점</td><td>1점</td><td class="is-good">2,000원</td></tr>
+            <tr><td>중형 2마리</td><td>4점</td><td>1점</td><td class="is-good">2,000원</td></tr>
+            <tr><td>대형 1마리</td><td>3점</td><td>-</td><td>0원</td></tr>
+            <tr><td>대형 1마리 + 소형 1마리</td><td>4점</td><td>1점</td><td class="is-good">2,000원</td></tr>
+            <tr><td>대형 2마리</td><td>6점</td><td>3점</td><td class="is-good">6,000원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tiny reveal" style="margin-top:14px">
+        몸무게는 예약할 때 입력한 값을 기준으로 하며, 실제와 크게 다르면 기사 확인 후 조정될 수 있습니다.
+      </p>
+
+      <h3 class="fare-subhead reveal">5-3. 통행료</h3>
+      <p class="fare-note reveal">
+        경로상 유료도로 통행료가 있으면 실비로 더해집니다. 할증 계산에는 들어가지 않고, 할인 계산에는 포함됩니다.
+      </p>
+
+      <h3 class="fare-subhead reveal">5-4. 대기 요금과 초과 대기 요금</h3>
+      <p class="fare-note reveal">기사가 사람이나 반려동물을 기다리는 시간에 붙는 요금입니다. 단가는 두 경우 모두 같습니다.</p>
+      <p class="fare-formula reveal">대기 요금 = 대기 시간 ÷ 10분(올림) × 3,000원</p>
+
+      <h4 class="fare-subhead fare-subhead--sm reveal">(가) 보호자가 동승하지 않는 단독 운송</h4>
+      <p class="fare-note reveal">
+        보호자가 함께 타지 않는 운송은 출발지와 도착지에서 사람을 기다리는 시간이 생깁니다.
+        아래 무료 대기 시간까지는 요금이 붙지 않고, 넘긴 시간에만 초과 대기 요금이 붙습니다.
+      </p>
+      <div class="table-wrap reveal">
+        <table class="table table--compact">
+          <caption class="sr-only">단독 운송 무료 대기 시간</caption>
+          <thead>
+            <tr>
+              <th scope="col">구분</th>
+              <th scope="col">무료 대기</th>
+              <th scope="col">초과 시</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">출발지 픽업</th><td><strong>10분</strong></td><td>10분당 3,000원</td></tr>
+            <tr><th scope="row">도착지 인계</th><td><strong>15분</strong></td><td>10분당 3,000원</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="fare-subhead fare-subhead--sm reveal">(나) 동물병원 방문 등 대기가 예정된 왕복 운행</h4>
+      <p class="fare-note reveal">
+        동물병원에 들렀다가 다시 돌아오는 운행처럼 목적지에서 기다려야 하는 예약은, 예약할 때 필요한 대기시간을
+        직접 지정합니다. 지정한 시간만큼의 대기 요금이 결제 금액에 미리 포함되고, 실제 대기가 그 시간을 넘기면
+        넘긴 만큼만 초과 대기 요금으로 더해집니다.
+      </p>
+      <ul class="fare-list reveal">
+        <li>지정한 대기시간보다 일찍 끝나더라도 차액은 환불되지 않습니다. 기사는 그 시간을 비워 두고 다음 운행 일정을 잡기 때문에, 예약할 때 지정한 시간은 이미 사용한 시간으로 봅니다.</li>
+        <li>초과분도 10분 단위로 올림해 계산합니다. 5분을 넘겼더라도 1단위(3,000원)가 붙습니다.</li>
+        <li>예) 대기시간 60분 지정 → 선결제에 대기 요금 18,000원 포함. 실제 75분 대기 → 초과 15분 → 2단위 → <strong>6,000원 추가 청구</strong></li>
+      </ul>
+
+      <p class="fare-callout reveal">
+        두 경우 모두 운행이 끝난 뒤 금액이 확정되며, 영수증에 &ldquo;초과 대기 요금 (20분 · 병원 대기 20분 초과)&rdquo; 처럼
+        사유와 함께 표시됩니다. 도착지에서 인계가 되지 않아 출발지로 되돌아가는 경우의 기준은
+        <a href="operation.html#cancel-fee">운영정책</a> 제4조(노쇼와 대기 요금)를 따릅니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 6. 거리별 예상 요금 ===== -->
+  <section class="section section--soft section--tight" id="by-distance">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:32px">
+        <span class="eyebrow">06</span>
+        <h2 class="h-2">거리별 예상 요금 (평일 주간 기준)</h2>
+        <p class="lead">
+          아래는 할증·통행료·대기 요금·할인이 없는 평일 주간 운행의 예시입니다.
+          소요 시간은 도심 평균 속도(1km당 3분)로 가정했으며, 실제로는 T맵 실시간 경로의 소요 시간으로 계산됩니다.
+        </p>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="table table--num">
+          <caption class="sr-only">거리별 예상 요금</caption>
+          <thead>
+            <tr>
+              <th scope="col">이동 거리</th>
+              <th scope="col">소요 시간</th>
+              <th scope="col">기본 요금</th>
+              <th scope="col">거리 요금</th>
+              <th scope="col">시간 요금</th>
+              <th scope="col">예상 요금</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">3km</th><td>9분</td><td>8,000</td><td>3,000</td><td>5,000</td><td class="is-good">16,000</td></tr>
+            <tr><th scope="row">5km</th><td>15분</td><td>8,000</td><td>5,000</td><td>6,600</td><td class="is-good">19,600</td></tr>
+            <tr><th scope="row">10km</th><td>30분</td><td>8,000</td><td>10,000</td><td>8,200</td><td class="is-good">26,200</td></tr>
+            <tr><th scope="row">20km</th><td>60분</td><td>8,000</td><td>20,000</td><td>10,000</td><td class="is-good">38,000</td></tr>
+            <tr><th scope="row">30km</th><td>90분</td><td>8,000</td><td>30,000</td><td>13,100</td><td class="is-good">51,100</td></tr>
+            <tr><th scope="row">50km</th><td>150분</td><td>8,000</td><td>50,000</td><td>21,000</td><td class="is-good">79,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="fare-chart reveal">
+        <img src="assets/img/pricing/fare-by-distance.png" width="1400" height="760" loading="lazy" decoding="async"
+             alt="거리별 요금 구성 막대그래프. 기본 요금은 8,000원으로 일정하고 거리 요금과 시간 요금이 거리에 따라 늘어나 3km 16,000원에서 50km 79,000원이 됩니다.">
+        <figcaption>[그림 3] 거리별 요금 구성</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== 7. 계산 예시 ===== -->
+  <section class="section section--tight" id="examples">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:32px">
+        <span class="eyebrow">07</span>
+        <h2 class="h-2">계산 예시 — 10km · 30분 운행</h2>
+        <p class="lead">같은 운행을 네 가지 조건으로 계산해 보면 다음과 같습니다. 분당 시간 요금은 10km 기준 273원입니다.</p>
+      </div>
+
+      <h3 class="fare-subhead reveal" style="margin-top:0">예시 ① 평일 낮 14:00 출발</h3>
+      <div class="table-wrap reveal">
+        <table class="table table--num">
+          <caption class="sr-only">평일 낮 출발 계산 예시</caption>
+          <thead>
+            <tr><th scope="col">항목</th><th scope="col">금액</th><th scope="col">계산</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">기본 요금</th><td>8,000</td><td>고정</td></tr>
+            <tr><th scope="row">이동 거리 요금</th><td>10,000</td><td>10km × 1,000원</td></tr>
+            <tr><th scope="row">시간 요금</th><td>8,200</td><td>30분 × 273원 = 8,190 → 올림</td></tr>
+            <tr class="is-total"><th scope="row">합계</th><td>26,200원</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="fare-subhead reveal">예시 ② 토요일 낮 14:00 출발</h3>
+      <div class="table-wrap reveal">
+        <table class="table table--num">
+          <caption class="sr-only">토요일 낮 출발 계산 예시</caption>
+          <thead>
+            <tr><th scope="col">항목</th><th scope="col">금액</th><th scope="col">계산</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">기본 + 거리 + 시간 요금</th><td>26,200</td><td>예시 ①과 동일</td></tr>
+            <tr><th scope="row">주말 할증 (20% · 토요일)</th><td>5,300</td><td>26,200 × 20% = 5,240 → 올림</td></tr>
+            <tr class="is-total"><th scope="row">합계</th><td>31,500원</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="fare-subhead reveal">예시 ③ 평일 새벽 01:00 출발 (전 구간 심야)</h3>
+      <div class="table-wrap reveal">
+        <table class="table table--num">
+          <caption class="sr-only">평일 새벽 출발 계산 예시</caption>
+          <thead>
+            <tr><th scope="col">항목</th><th scope="col">금액</th><th scope="col">계산</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">기본 + 거리 + 시간 요금</th><td>26,200</td><td>예시 ①과 동일</td></tr>
+            <tr><th scope="row">심야 할증</th><td>3,600</td><td>(8,000 + 10,000) × 20% × 1.0</td></tr>
+            <tr class="is-total"><th scope="row">합계</th><td>29,800원</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="fare-subhead reveal">예시 ④ 평일 낮 14:00 출발 · 대형견 2마리 · 동물병원 대기 60분 지정</h3>
+      <div class="table-wrap reveal">
+        <table class="table table--num">
+          <caption class="sr-only">반려동물 추가요금과 대기 요금이 붙는 계산 예시</caption>
+          <thead>
+            <tr><th scope="col">항목</th><th scope="col">금액</th><th scope="col">계산</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">기본 + 거리 + 시간 요금</th><td>26,200</td><td>예시 ①과 동일</td></tr>
+            <tr><th scope="row">반려동물 추가요금</th><td>6,000</td><td>대형 2마리 = 6점 → 초과 3점 × 2,000원</td></tr>
+            <tr><th scope="row">대기 요금 (60분)</th><td>18,000</td><td>60분 ÷ 10분 = 6단위 × 3,000원</td></tr>
+            <tr class="is-total"><th scope="row">합계 (선결제)</th><td>50,200원</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="fare-callout reveal">
+        예시 ④에서 실제 대기가 75분이 되면 초과 15분에 2단위(6,000원)가 더해져 최종 <strong>56,200원</strong>이 됩니다.
+        토요일 새벽 01:00 출발처럼 두 할증이 겹치면, 주말 할증은 심야 할증까지 더해진 29,800원을 기준으로 계산되어
+        6,000원이 붙고 합계는 <strong>35,800원</strong>이 됩니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 8. 할인 ===== -->
+  <section class="section section--soft section--tight" id="discount">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:28px">
+        <span class="eyebrow">08</span>
+        <h2 class="h-2">할인 — 쿠폰과 마일리지</h2>
+      </div>
+      <ul class="fare-list reveal">
+        <li>쿠폰과 마일리지는 통행료·대기 요금까지 모두 더한 최종 금액에서 차감됩니다.</li>
+        <li>할인 후 금액이 0원보다 작아지지는 않습니다.</li>
+        <li>영수증에는 &ldquo;할인&rdquo; 항목으로 사용 내역과 함께 표시됩니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 9. 알아두실 점 ===== -->
+  <section class="section section--tight" id="notes">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:28px">
+        <span class="eyebrow">09</span>
+        <h2 class="h-2">알아두실 점</h2>
+      </div>
+      <ul class="fare-list reveal">
+        <li>예약할 때 보이는 금액은 실제 경로의 거리·소요 시간을 바탕으로 계산한 예상 금액입니다.</li>
+        <li>예약 내용을 수정해 거리·시간·출발 시각·대기시간이 바뀌면 요금도 다시 계산됩니다.</li>
+        <li>이미 결제한 금액이 내려가면 차액을 환불하고, 올라가면 앱에서 추가 결제를 안내합니다.</li>
+        <li>예약 취소에 따른 수수료는 이 문서가 아니라 <a href="operation.html#cancel-fee">운영정책</a> 제3조(취소와 수수료)를 따릅니다.</li>
+        <li>요금표가 바뀌면 적용일 전에 홈페이지에 다시 게재합니다. 이미 확정된 예약은 확정 당시의 요금이 그대로 유지됩니다.</li>
+      </ul>
+
+      <div class="btn-group reveal" style="margin-top:36px">
+        <a class="btn btn--primary" href="platform-nebalson.html">네발손님 소개 보기</a>
+        <a class="btn btn--ghost" href="contact.html">요금 문의하기</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 푸터 — assets/js/layout.js 가 생성합니다 -->
+<div id="site-footer"></div>
+
+<script src="assets/js/site-config.js" defer></script>
+<script src="assets/js/layout.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

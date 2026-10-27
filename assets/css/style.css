@@ -969,3 +969,156 @@ h1, h2, h3, h4 { line-height: 1.28; letter-spacing: -.03em; font-weight: 800; }
 .footer__policy { display: flex; gap: 20px; font-size: 13px; }
 .footer__policy a { color: rgba(255, 255, 255, .8); }
 .footer__policy a:hover { color: #fff; }
+
+/* ---------- 19. 상단 메뉴 하위메뉴 (섹션 바로가기) ----------
+   site-config.js 의 nav[].sections 가 있을 때만 생깁니다.
+   데스크톱은 hover / 키보드 포커스로 열리고, 860px 이하에서는
+   상단 메뉴 자체가 사라지므로 드로어 안의 들여쓴 목록으로 대체됩니다. */
+.nav__item { position: relative; display: flex; align-items: center; }
+
+.nav__link--parent { display: inline-flex; align-items: center; gap: 5px; }
+.nav__caret { width: 10px; height: 6px; flex: none; opacity: .55; transition: transform .2s var(--ease), opacity .2s var(--ease); }
+.nav__item--has-sub:hover .nav__caret,
+.nav__item--has-sub:focus-within .nav__caret { transform: rotate(180deg); opacity: 1; }
+
+.subnav {
+  position: absolute;
+  top: 100%; left: 50%;
+  z-index: 10;
+  min-width: 212px;
+  padding-top: 10px;              /* 메뉴와 패널 사이 hover 가 끊기지 않도록 */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 6px);
+  transition: opacity .18s var(--ease), transform .18s var(--ease), visibility .18s;
+}
+.nav__item--has-sub:hover .subnav,
+.nav__item--has-sub:focus-within .subnav {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+.subnav__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow);
+}
+.subnav__link {
+  display: block;
+  padding: 9px 14px;
+  border-radius: var(--r-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-2);
+  white-space: nowrap;
+  transition: color .15s var(--ease), background-color .15s var(--ease);
+}
+.subnav__link:hover { background: var(--bg-soft); color: var(--ink); }
+.subnav__link.is-active { color: var(--brand); font-weight: 700; }
+
+/* 모바일 드로어 안의 하위 목록 */
+.drawer__sub { display: flex; flex-direction: column; padding: 8px 0 16px; }
+.drawer__sublink {
+  padding: 11px 0 11px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-2);
+  border-left: 2px solid var(--line);
+}
+.drawer__sublink:hover { color: var(--ink); border-left-color: var(--ink-3); }
+.drawer__sublink.is-active { color: var(--brand); border-left-color: var(--brand); }
+
+/* ---------- 20. 요금 안내 (pricing.html) ---------- */
+.fare-formula {
+  margin: 0;
+  padding: 22px 26px;
+  background: var(--brand-softer);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  text-align: center;
+  font-size: clamp(15px, 1.65vw, 18px);
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: -.022em;
+  color: var(--brand-dark);
+}
+.fare-formula sup { font-size: .78em; font-weight: 700; }
+.fare-formula__note {
+  display: block;
+  margin-top: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--ink-3);
+}
+
+.fare-subhead { font-size: 19px; font-weight: 800; margin: 40px 0 12px; letter-spacing: -.02em; }
+.fare-subhead--sm { font-size: 16px; margin-top: 32px; color: var(--ink-2); }
+
+.fare-note { font-size: 15px; color: var(--ink-2); line-height: 1.8; margin-bottom: 18px; }
+
+.fare-list { display: grid; gap: 10px; margin: 4px 0 18px; }
+.fare-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.8;
+}
+.fare-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: .72em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+.fare-list strong { color: var(--ink); }
+
+.fare-callout {
+  margin-top: 22px;
+  padding: 18px 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand);
+  border-radius: var(--r-sm);
+  font-size: 14.5px;
+  color: var(--ink-2);
+  line-height: 1.8;
+}
+.fare-callout a { color: var(--brand); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+.fare-chart {
+  margin: 28px 0 0;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+.fare-chart img { margin: 0 auto; }
+.fare-chart figcaption { margin-top: 12px; text-align: center; font-size: 13px; color: var(--ink-3); }
+
+/* 요금 표: 기본 .table 보다 촘촘하게, 금액 열은 우측 정렬 */
+.table--compact { min-width: 520px; }
+.table--compact th, .table--compact td { padding: 13px 18px; }
+.table--num td { font-variant-numeric: tabular-nums; }
+.table--num td + td { text-align: right; }
+.table--num td:last-child { text-align: left; color: var(--ink-2); font-size: 14px; }
+.table tbody tr.is-total th, .table tbody tr.is-total td {
+  background: var(--brand-softer);
+  font-weight: 800;
+  color: var(--brand-dark);
+}
+
+@media (max-width: 640px) {
+  .fare-formula { padding: 18px; font-size: 14.5px; }
+  .fare-chart { padding: 12px; }
+  .fare-subhead { font-size: 17px; margin-top: 32px; }
+}

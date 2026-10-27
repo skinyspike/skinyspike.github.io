@@ -68,9 +68,11 @@
     var links = document.querySelectorAll('[data-nav]');
     for (var i = 0; i < links.length; i++) {
       var target = links[i].getAttribute('data-nav');
-      // 공지 상세는 공지사항 메뉴를 활성 상태로 유지한다.
+      // 공지 상세는 공지사항 메뉴를, 요금 안내는 네발손님 메뉴를 활성 상태로 유지한다
+      // (둘 다 상위 메뉴에 딸린 페이지라, 상위가 꺼져 있으면 현재 위치를 알 수 없다).
       var match = target === here ||
-        (target === 'notice.html' && here === 'notice-detail.html');
+        (target === 'notice.html' && here === 'notice-detail.html') ||
+        (target === 'platform-nebalson.html' && here === 'pricing.html');
       if (match) links[i].classList.add('is-active');
     }
   }
@@ -256,6 +258,49 @@
     });
   }
 
+  /* ---------- 8. 하위메뉴 앵커로 스크롤 ----------
+     상단 메뉴의 하위메뉴는 'about.html#values' 처럼 다른 페이지의 섹션을 가리킨다.
+     그런 주소로 들어오면 브라우저가 로드 중에 한 번 스크롤하는데, 그 시점에는
+     위쪽 이미지와 지연 스크립트가 아직 자리를 잡지 않아 엉뚱한 위치에 멈추거나
+     아예 맨 위에 머무는 일이 있다. 그래서 로드가 끝난 뒤 한 번 더 맞춘다.
+     scrollIntoView 는 CSS 의 scroll-padding-top(헤더 높이 + 16px)을 따르므로
+     섹션 제목이 고정 헤더에 가리지 않는다. */
+  function initHashScroll() {
+    var hash = location.hash;
+    if (!hash || hash.length < 2) return;
+
+    var target;
+    try {
+      target = document.querySelector(hash);
+    } catch (e) {
+      return; // 선택자로 쓸 수 없는 해시(#1 등)는 무시
+    }
+    if (!target) return;
+
+    /* 첫 진입은 애니메이션 없이 바로 그 자리에 있어야 한다.
+       scrollIntoView 의 behavior:'auto' 는 "즉시"가 아니라 "CSS 값을 따른다"는 뜻이라
+       html 의 scroll-behavior:smooth 가 그대로 걸린다. 그래서 스크롤하는 동안만
+       smooth 를 끄고 위치를 직접 계산해 옮긴다(scroll-padding-top = 헤더 높이 + 16px). */
+    function settle() {
+      var root = document.documentElement;
+      var prev = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+
+      var pad = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - pad;
+      window.scrollTo(0, Math.max(0, top));
+
+      root.style.scrollBehavior = prev;
+    }
+
+    settle();
+    // 이미지가 늦게 자리를 잡으면 위치가 밀리므로 로드가 끝난 뒤 한 번 더 맞춘다.
+    window.addEventListener('load', function () {
+      settle();
+      window.setTimeout(settle, 0);
+    });
+  }
+
   /* ---------- 초기화 ---------- */
   function boot() {
     initHeader();
@@ -265,6 +310,7 @@
     initCounters();
     initYear();
     initContactForm();
+    initHashScroll();
   }
 
   if (document.readyState === 'loading') {

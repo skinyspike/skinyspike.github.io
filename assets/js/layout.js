@@ -43,18 +43,64 @@
       '</a>';
   }
 
+  /* 하위메뉴가 있는 상단 메뉴에 붙는 꺾쇠 */
+  function caret() {
+    return '<svg class="nav__caret" viewBox="0 0 10 6" aria-hidden="true" focusable="false">' +
+      '<path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" ' +
+      'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+
+  /* 하위메뉴 링크의 data-nav.
+     main.js 의 현재 페이지 활성화는 data-nav 를 '현재 파일명'과 비교하므로,
+     같은 페이지 안의 앵커(about.html#values)에 붙이면 그 페이지의 하위메뉴가
+     전부 활성 상태가 된다. 그래서 # 가 없는 '독립 페이지' 항목에만 붙인다. */
+  function navAttr(href) {
+    return String(href).indexOf('#') === -1 ? ' data-nav="' + esc(href) + '"' : '';
+  }
+
   /* ---------- 헤더 + 드로어 ---------- */
   function renderHeader(mount) {
     var ctaLabel = mount.getAttribute('data-cta') || S.drawerCta.label;
     var ctaHref = mount.getAttribute('data-cta-href') || S.drawerCta.href;
 
-    var navLinks = S.nav.map(function (n) {
-      return '<a class="nav__link" data-nav="' + esc(n.href) + '" href="' + esc(n.href) + '">' + esc(n.label) + '</a>';
+    var navLinks = S.nav.map(function (n, i) {
+      var subs = n.sections || [];
+      if (!subs.length) {
+        return '<div class="nav__item">' +
+          '<a class="nav__link" data-nav="' + esc(n.href) + '" href="' + esc(n.href) + '">' + esc(n.label) + '</a>' +
+          '</div>';
+      }
+      var panelId = 'subnav-' + i;
+      return '<div class="nav__item nav__item--has-sub">' +
+        '<a class="nav__link nav__link--parent" data-nav="' + esc(n.href) + '" href="' + esc(n.href) + '"' +
+          ' aria-describedby="' + panelId + '">' +
+          esc(n.label) + caret() +
+        '</a>' +
+        '<div class="subnav" id="' + panelId + '">' +
+          '<div class="subnav__inner">' +
+            subs.map(function (s) {
+              return '<a class="subnav__link"' + navAttr(s.href) + ' href="' + esc(s.href) + '">' + esc(s.label) + '</a>';
+            }).join('') +
+          '</div>' +
+        '</div>' +
+        '</div>';
     }).join('');
 
-    var drawerLinks = S.nav.concat([S.headerCta]).map(function (n) {
-      return '<a class="drawer__link" data-nav="' + esc(n.href) + '" href="' + esc(n.href) + '">' + esc(n.label) + '</a>';
-    }).join('');
+    var drawerLinks = S.nav.map(function (n) {
+      var html = '<a class="drawer__link" data-nav="' + esc(n.href) + '" href="' + esc(n.href) + '">' + esc(n.label) + '</a>';
+      var subs = n.sections || [];
+      if (subs.length) {
+        html += '<div class="drawer__sub">' +
+          subs.map(function (s) {
+            return '<a class="drawer__sublink"' + navAttr(s.href) + ' href="' + esc(s.href) + '">' + esc(s.label) + '</a>';
+          }).join('') +
+          '</div>';
+      }
+      return html;
+    }).concat([
+      '<a class="drawer__link" data-nav="' + esc(S.headerCta.href) + '" href="' + esc(S.headerCta.href) + '">' +
+        esc(S.headerCta.label) + '</a>'
+    ]).join('');
 
     mount.innerHTML =
       '<header class="header">' +
