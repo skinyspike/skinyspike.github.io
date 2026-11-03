@@ -25,7 +25,7 @@ var WP_NOTICES = [
   {
     id: 'nebalson-loading-gate-payment',
     category: '업데이트',
-    title: '「네발손님」 기다리는 동안 무엇이 되고 있는지 보여드립니다',
+    title: '「네발손님」 10월 업데이트 내역',
     date: '2026-10-26',
     excerpt: '통신 중 로딩 화면, 결제 취소 뒤처리, 알림함 필터와 최신순 정렬, 공유 예약 링크 광고 기준이 정리되었습니다.',
     body:
