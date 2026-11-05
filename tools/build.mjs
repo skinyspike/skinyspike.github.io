@@ -30,7 +30,7 @@ const SITE = 'https://www.wonderplant.xyz';
 const BRAND = '주식회사 원더플랜트';
 
 /* 가이드 허브에 묶이는 순서. 여기 없는 분류는 뒤에 붙습니다. */
-const CATEGORY_ORDER = ['반려동물 이동', '아이 습관과 보상'];
+const CATEGORY_ORDER = ['반려동물 이동', '반려동물과 사는 일', '아이 습관과 보상'];
 
 /* ---------- 유틸 ---------- */
 

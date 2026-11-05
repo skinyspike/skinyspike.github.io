@@ -97,6 +97,77 @@ meta-->
 
 ---
 
+## 주간 가이드 자동 작성 (로컬)
+
+이 PC 의 **Windows 작업 스케줄러**가 매주 **일요일 밤 10시**에 글 한 편을 씁니다.
+클라우드가 아니라 로컬에서 돌기 때문에 PC 가 켜져 있어야 하고,
+꺼져 있었다면 다음에 켤 때 밀린 작업이 실행됩니다 (`StartWhenAvailable`).
+
+| | |
+| --- | --- |
+| 작업 이름 | `WonderPlant-WeeklyGuide` |
+| 실행 파일 | `tools/weekly-guide.ps1` |
+| 지시문 | `tools/weekly-guide-prompt.md` ← **글 방향을 바꾸려면 여기** |
+| 주제 대기열 | `content/guides/BACKLOG.md` ← **다음 주제를 바꾸려면 여기** |
+| 집필 규칙 | `content/guides/WRITING-GUIDE.md` |
+| 로그 | `%LOCALAPPDATA%\wonderplant\logs\` |
+
+### 매주 하는 일
+
+주제 선택 → 사실 확인 → 원고 작성 → `node tools/build.mjs` → 백로그 갱신 →
+**로컬 커밋** → 슬랙 전송.
+
+**푸시는 하지 않습니다.** 글을 읽어 보고 직접 `git push` 해야 사이트에 올라갑니다.
+
+### 작업 트리가 지저분하면 멈춥니다
+
+커밋되지 않은 변경이 있으면 스크립트가 시작하지 않고 끝냅니다.
+남의 변경이 주간 커밋에 섞이는 것을 막기 위한 것입니다.
+작업 중인 내용이 있으면 커밋하거나 stash 한 뒤 다시 실행하세요.
+
+### 손으로 실행하기
+
+```bash
+powershell -ExecutionPolicy Bypass -File tools\weekly-guide.ps1
+```
+
+점검만 하고 아무것도 바꾸지 않으려면 `-WhatIfOnly` 를 붙입니다.
+
+### 일정·중지
+
+```powershell
+Get-ScheduledTaskInfo -TaskName 'WonderPlant-WeeklyGuide'              # 다음 실행 시각
+Disable-ScheduledTask  -TaskName 'WonderPlant-WeeklyGuide'             # 잠시 중지
+Enable-ScheduledTask   -TaskName 'WonderPlant-WeeklyGuide'             # 재개
+Unregister-ScheduledTask -TaskName 'WonderPlant-WeeklyGuide' -Confirm:$false   # 삭제
+```
+
+---
+
+## 슬랙 알림
+
+글이 완성되면 `tools/notify-slack.mjs` 가 제목·분류·글자수·본문 전문을 슬랙으로 보냅니다.
+
+```bash
+node tools/notify-slack.mjs <slug>             # 전송
+node tools/notify-slack.mjs <slug> --dry-run   # 보낼 내용만 출력
+```
+
+### ⚠ 웹훅 주소는 저장소에 넣지 마세요
+
+이 저장소는 GitHub Pages 로 공개됩니다. 웹훅 주소가 커밋에 들어가면
+누구나 이 슬랙 채널에 메시지를 보낼 수 있게 됩니다.
+
+주소는 **사용자 환경변수**에만 둡니다.
+
+```powershell
+setx WONDERPLANT_SLACK_WEBHOOK "https://hooks.slack.com/services/..."
+```
+
+설정 후 새 터미널부터 적용됩니다. 환경변수가 없으면 글은 그대로 쓰고 전송만 건너뜁니다.
+
+---
+
 ## 광고 코드 배치 원칙
 
 애드센스 스크립트는 **본문이 있는 페이지에만** 넣습니다.
