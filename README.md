@@ -13,12 +13,24 @@ GitHub Pages에 그대로 올리면 바로 동작합니다. npm, 번들러, 프�
 ├── about.html                    회사소개 (미션 · 문제 · 가치 · 연혁 · 회사정보)
 ├── platform-nebalson.html        네발손님 (펫택시 플랫폼)
 ├── platform-familyquest.html     패밀리 퀘스트 (동기부여 할일 앱)
+├── pricing.html                  네발손님 요금 안내
 ├── notice.html                   공지사항 목록 (카테고리 · 검색 · 페이지네이션)
-├── notice-detail.html            공지사항 상세 (?id=...)
+├── notice-<id>.html              ⚙ 공지 상세 — 생성물. 직접 고치지 마세요
+├── notice-detail.html            예전 주소 호환용 (정적 페이지로 넘김 · noindex)
+├── guide.html                    ⚙ 가이드 허브 — 생성물
+├── guide-<slug>.html             ⚙ 가이드 본문 — 생성물. 직접 고치지 마세요
 ├── contact.html                  문의하기
+├── terms.html / operation.html / privacy.html   약관 · 운영정책 · 개인정보처리방침
 ├── 404.html                      404 페이지
 ├── robots.txt
+├── sitemap.xml                   ⚙ 생성물
+├── ads.txt
 ├── .nojekyll                     GitHub Pages의 Jekyll 처리 비활성화
+├── content/
+│   └── guides/*.html             ★ 가이드 원고 (meta 블록 + 본문 HTML)
+├── tools/
+│   ├── build.mjs                 ★ 정적 페이지 생성기 — node tools/build.mjs
+│   └── weekly-notice.ps1         주간 공지 작성 도우미
 └── assets/
     ├── css/style.css             전체 스타일 (디자인 토큰 · 반응형 · 다크 미대응 단일 테마)
     ├── img/favicon.svg           로고 / 파비콘
@@ -30,6 +42,72 @@ GitHub Pages에 그대로 올리면 바로 동작합니다. npm, 번들러, 프�
         ├── notice-list.js        목록 렌더링 · 필터 · 검색 · 페이지네이션
         └── notice-detail.js      상세 렌더링 · 이전/다음 글
 ```
+
+---
+
+## ⚙ 글을 올린 뒤에는 반드시 빌드하세요
+
+```bash
+node tools/build.mjs
+```
+
+공지와 가이드는 **JS 로만 그리면 크롤러에게 빈 페이지로 보입니다.**
+검색과 애드센스 모두 "정적 HTML 안에 본문이 있는가"를 보기 때문에,
+글마다 실제 파일을 만들어 두어야 합니다. 이 명령이 하는 일은 다음과 같습니다.
+
+| 만드는 것 | 원본 |
+| --- | --- |
+| `notice-<id>.html` | `assets/js/notices-data.js` |
+| `guide-<slug>.html` · `guide.html` | `content/guides/*.html` |
+| `notice.html` 안의 정적 목록 | `assets/js/notices-data.js` |
+| `sitemap.xml` | 위 전부 + 고정 페이지 |
+
+빌드 산출물은 커밋에 포함합니다. GitHub Pages 에는 빌드 과정이 없습니다.
+
+### 공지 올리기
+
+1. `assets/js/notices-data.js` 배열 맨 앞에 객체를 추가합니다.
+2. `node tools/build.mjs`
+3. 커밋 · 푸시
+
+### 가이드 올리기
+
+1. `content/guides/<slug>.html` 파일을 만듭니다. 맨 위에 meta 블록, 그 아래가 본문입니다.
+
+```html
+<!--meta
+{
+  "title":       "제목",
+  "description": "목록과 검색결과에 보이는 두 문장",
+  "category":    "반려동물 이동",
+  "date":        "2026-11-06",
+  "order":       7,
+  "related":     ["다른-slug", "또-다른-slug"]
+}
+meta-->
+<p>본문은 평범한 HTML 입니다.</p>
+<h2>큰 제목</h2>
+<div class="callout">강조 박스</div>
+<div class="table-wrap"><table class="table table--compact">…</table></div>
+```
+
+2. 분류를 새로 만들었다면 `tools/build.mjs` 의 `CATEGORY_ORDER` 에 추가합니다.
+3. `node tools/build.mjs`
+4. 헤더·푸터 메뉴에도 넣으려면 `assets/js/site-config.js` 의 `가이드` 항목에 링크를 추가합니다.
+
+---
+
+## 광고 코드 배치 원칙
+
+애드센스 스크립트는 **본문이 있는 페이지에만** 넣습니다.
+약관·운영정책·개인정보처리방침·문의 폼처럼 읽을 거리가 없는 페이지에 광고가 붙으면
+"콘텐츠 없이 광고만 있는 페이지"로 분류될 수 있습니다.
+
+| 광고 있음 | 광고 없음 |
+| --- | --- |
+| `index` · `about` · `platform-*` · `pricing` · `notice` · `notice-*` · `guide` · `guide-*` | `terms` · `operation` · `privacy` · `contact` · `404` · `notice-detail` |
+
+생성물의 광고 여부는 `tools/build.mjs` 의 `page({ ads: … })` 에서 정합니다.
 
 ---
 

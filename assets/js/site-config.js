@@ -63,6 +63,17 @@ var WP_SITE = {
         { label: '가족 베타 신청', href: 'platform-familyquest.html#beta' }
       ]
     },
+    {
+      label: '가이드', href: 'guide.html',
+      sections: [
+        { label: '동물병원 가는 날 준비물', href: 'guide-pet-hospital-checklist.html' },
+        { label: '멀미인지 불안인지 가리기', href: 'guide-pet-car-sickness.html' },
+        { label: '이동장 적응 2주 훈련', href: 'guide-pet-carrier-training.html' },
+        { label: '펫택시 요금이 매겨지는 방식', href: 'guide-pet-taxi-fare.html' },
+        { label: '대중교통 동반 규정', href: 'guide-pet-public-transport.html' },
+        { label: '전체 가이드 보기', href: 'guide.html' }
+      ]
+    },
     { label: '공지사항', href: 'notice.html' }
   ],
 
@@ -99,6 +110,19 @@ var WP_SITE = {
         { label: '네발손님 (펫택시)', href: 'platform-nebalson.html' },
         { label: '네발손님 요금 안내', href: 'pricing.html' },
         { label: '패밀리 퀘스트', href: 'platform-familyquest.html' }
+      ]
+    },
+    {
+      title: '가이드',
+      links: [
+        { label: '동물병원 가는 날 준비물', href: 'guide-pet-hospital-checklist.html' },
+        { label: '차에서 토하는 아이', href: 'guide-pet-car-sickness.html' },
+        { label: '이동장 적응 2주 훈련', href: 'guide-pet-carrier-training.html' },
+        { label: '장거리 이동 타임라인', href: 'guide-pet-long-distance.html' },
+        { label: '펫택시 요금 구조', href: 'guide-pet-taxi-fare.html' },
+        { label: '대중교통 동반 규정', href: 'guide-pet-public-transport.html' },
+        { label: '아이 습관과 보상', href: 'guide-habit-two-weeks.html' },
+        { label: '전체 보기', href: 'guide.html' }
       ]
     },
     {

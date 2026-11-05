@@ -74,7 +74,7 @@
     }
     var a = document.createElement('a');
     a.className = 'notice-nav__item';
-    a.href = 'notice-detail.html?id=' + encodeURIComponent(item.id);
+    a.href = 'notice-' + item.id + '.html';
     var d = document.createElement('span');
     d.className = 'notice-nav__dir';
     d.textContent = dirLabel;

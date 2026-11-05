@@ -400,7 +400,7 @@
     items.forEach(function (n) {
       var a = document.createElement('a');
       a.className = 'notice-item';
-      a.href = 'notice-detail.html?id=' + encodeURIComponent(n.id);
+      a.href = 'notice-' + n.id + '.html';
 
       var cat = document.createElement('span');
       cat.className = 'notice-item__cat';

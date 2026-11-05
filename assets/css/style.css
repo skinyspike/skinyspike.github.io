@@ -843,8 +843,8 @@ h1, h2, h3, h4 { line-height: 1.28; letter-spacing: -.03em; font-weight: 800; }
 }
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.3fr repeat(4, 1fr);
+  gap: 36px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
@@ -1121,4 +1121,162 @@ h1, h2, h3, h4 { line-height: 1.28; letter-spacing: -.03em; font-weight: 800; }
   .fare-formula { padding: 18px; font-size: 14.5px; }
   .fare-chart { padding: 12px; }
   .fare-subhead { font-size: 17px; margin-top: 32px; }
+}
+
+/* ============================================================
+   가이드 (콘텐츠 섹션)
+   ------------------------------------------------------------
+   · .prose          긴 본문 — .notice-detail__body 에 덧붙여 씁니다
+   · .callout        본문 중간의 강조 박스
+   · .guide-card     허브의 카드
+   · .guide-related  본문 하단의 추천 글
+   ============================================================ */
+
+/* ---------- 본문 ---------- */
+.prose { font-size: 17px; }
+.prose > h2 {
+  font-size: clamp(21px, 2.6vw, 26px);
+  color: var(--ink);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  margin: 56px 0 18px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-soft);
+}
+.prose > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.prose > h3 {
+  font-size: 18.5px;
+  color: var(--ink);
+  margin: 36px 0 12px;
+}
+.prose em { font-style: normal; background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; }
+.prose ol { list-style: decimal; padding-left: 22px; margin-bottom: 18px; }
+.prose ol li { margin-bottom: 8px; }
+.prose .table-wrap { margin: 26px 0 30px; }
+.prose .table th { color: var(--ink); }
+.prose .table thead th { color: var(--ink-2); }
+
+/* ---------- 강조 박스 ---------- */
+.callout {
+  margin: 30px 0;
+  padding: 20px 22px;
+  background: var(--brand-softer);
+  border: 1px solid var(--brand-soft);
+  border-left: 3px solid var(--brand);
+  border-radius: var(--r-md);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.callout strong { color: var(--brand-dark); }
+.callout--warn {
+  background: var(--accent-soft);
+  border-color: #F6E3BE;
+  border-left-color: var(--accent);
+}
+.callout--warn strong { color: #8A5A00; }
+.callout > :last-child { margin-bottom: 0; }
+
+/* ---------- 머리말 칩 ---------- */
+.guide-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 11px;
+  border-radius: var(--r-full);
+  background: var(--pet-soft);
+  color: var(--brand-dark);
+  font-size: 12.5px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ---------- 허브 ---------- */
+.guide-group + .guide-group { margin-top: 64px; }
+.guide-group__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.guide-group__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: var(--r-full);
+  background: var(--bg-soft);
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 800;
+}
+.guide-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 26px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--bg);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s;
+}
+.guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: transparent;
+}
+.guide-card__title { font-size: 18px; line-height: 1.45; color: var(--ink); margin: 0; }
+.guide-card__desc {
+  flex: 1;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.guide-card__meta { font-size: 12.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+/* ---------- 본문 하단 추천 ---------- */
+.guide-related {
+  margin-top: 56px;
+  padding: 28px;
+  background: var(--bg-soft);
+  border-radius: var(--r-lg);
+}
+.guide-related__title { font-size: 16px; margin-bottom: 16px; color: var(--ink); }
+.guide-related__list { display: grid; gap: 10px; }
+.guide-related__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 13px 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  transition: border-color .2s, transform .3s var(--ease);
+}
+.guide-related__item:hover { border-color: var(--brand); transform: translateX(3px); }
+.guide-related__cat { font-size: 11.5px; font-weight: 800; color: var(--ink-3); white-space: nowrap; }
+.guide-related__name { font-size: 14.5px; font-weight: 600; color: var(--ink); line-height: 1.5; }
+
+@media (max-width: 860px) {
+  .guide-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .prose { font-size: 16px; }
+  .prose > h2 { margin-top: 40px; padding-top: 22px; }
+  .callout { padding: 16px 18px; font-size: 15px; }
+  .guide-card { padding: 20px; }
+  .guide-related { padding: 20px; }
+  .guide-related__item { grid-template-columns: 1fr; gap: 4px; }
 }

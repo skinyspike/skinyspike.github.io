@@ -76,7 +76,7 @@
 
     items.forEach(function (n) {
       var a = el('a', 'notice-item');
-      a.href = 'notice-detail.html?id=' + encodeURIComponent(n.id);
+      a.href = 'notice-' + n.id + '.html';
 
       var cat = el('span', 'notice-item__cat', n.category);
       cat.setAttribute('data-cat', n.category);
